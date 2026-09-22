@@ -1,0 +1,75 @@
+table fact_model_validation
+	column validation_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: validation_id
+
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column test_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: test_name
+
+	column passed
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: passed
+
+	column validation_scope
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_scope
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	partition fact_model_validation = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_model_validation.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"validation_id", Int64.Type}, {"run_id", Int64.Type}, {"test_name", type text}, {"passed", type logical}, {"validation_scope", type text}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"tyre_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}}, "en-US")
+			in
+				Typed

@@ -1,0 +1,4 @@
+session_id,session_name,date_id,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+1,Qualifying,20260917,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+2,Race,20260917,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+3,Wet study,20260917,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

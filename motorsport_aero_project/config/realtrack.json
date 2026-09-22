@@ -1,0 +1,9 @@
+{
+  "model_version": "realtrack-1.0.0",
+  "sample_spacing_m": 5.0,
+  "smoothing_sigma_m": 4.0,
+  "circuits": [{"circuit_id": 101, "slug": "silverstone", "name": "Silverstone Grand Prix", "osm_relation_id": 51160, "start_way_id": 55224167, "expected_length_range_m": [5500, 6200]}],
+  "vehicle": {"mass_kg": 820.0, "power_w": 480000.0, "mu": 1.55, "rho_kg_m3": 1.225, "area_m2": 1.5, "rolling_coefficient": 0.015, "max_brake_mps2": 28.0, "max_lateral_mps2": 39.24, "max_speed_mps": 95.0},
+  "baseline": {"front_wing_deg": 16.0, "rear_wing_deg": 20.0, "front_height_m": 0.04, "rear_height_m": 0.06},
+  "search": {"front_wing_deg": [10.0, 14.0, 18.0], "rear_wing_deg": [12.0, 18.0, 24.0]}
+}

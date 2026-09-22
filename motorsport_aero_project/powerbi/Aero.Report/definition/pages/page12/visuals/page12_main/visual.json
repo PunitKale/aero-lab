@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page12_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_vehicle_state"
+                    }
+                  },
+                  "Property": "distance_m"
+                }
+              },
+              "queryRef": "fact_vehicle_state.distance_m"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_simulation_lap"
+                    }
+                  },
+                  "Property": "Top Speed"
+                }
+              },
+              "queryRef": "fact_simulation_lap.Top Speed"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Speed and Acceleration \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

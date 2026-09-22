@@ -1,0 +1,260 @@
+table fact_vehicle_state
+	column vehicle_state_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: vehicle_state_id
+
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column sample_index
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sample_index
+
+	column distance_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: distance_m
+
+	column step_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: step_m
+
+	column time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: time_s
+
+	column dt_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: dt_s
+
+	column shift_loss_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: shift_loss_s
+
+	column speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: speed_mps
+
+	column exit_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: exit_speed_mps
+
+	column acceleration_mps2
+		dataType: double
+		summarizeBy: none
+		sourceColumn: acceleration_mps2
+
+	column lateral_acceleration_mps2
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lateral_acceleration_mps2
+
+	column gear
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: gear
+
+	column drs
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: drs
+
+	column drs_zone
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: drs_zone
+
+	column fuel_kg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: fuel_kg
+
+	column mass_kg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mass_kg
+
+	column tyre_wear
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear
+
+	column tyre_temperature_c
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_temperature_c
+
+	column engine_force_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: engine_force_n
+
+	column available_engine_force_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: available_engine_force_n
+
+	column brake_force_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: brake_force_n
+
+	column rolling_force_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rolling_force_n
+
+	column front_tyre_load_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_tyre_load_n
+
+	column rear_tyre_load_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_tyre_load_n
+
+	column max_wheel_load_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: max_wheel_load_n
+
+	column tyre_mu
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_mu
+
+	column segment_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: segment_id
+
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column radius_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: radius_m
+
+	column front_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_downforce_n
+
+	column rear_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_downforce_n
+
+	column downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: downforce_n
+
+	column drag_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drag_n
+
+	column drag_longitudinal_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drag_longitudinal_n
+
+	column front_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_height_m
+
+	column rear_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_height_m
+
+	column yaw_deg
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: yaw_deg
+
+	column roll_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: roll_deg
+
+	column cl_down
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cl_down
+
+	column cd
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cd
+
+	column front_aero_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_aero_fraction
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	partition fact_vehicle_state = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_vehicle_state.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"vehicle_state_id", Int64.Type}, {"run_id", Int64.Type}, {"sample_index", Int64.Type}, {"distance_m", Int64.Type}, {"step_m", Int64.Type}, {"time_s", type number}, {"dt_s", type number}, {"shift_loss_s", type number}, {"speed_mps", type number}, {"exit_speed_mps", type number}, {"acceleration_mps2", type number}, {"lateral_acceleration_mps2", type number}, {"gear", Int64.Type}, {"drs", Int64.Type}, {"drs_zone", Int64.Type}, {"fuel_kg", type number}, {"mass_kg", type number}, {"tyre_wear", type number}, {"tyre_temperature_c", type number}, {"engine_force_n", type number}, {"available_engine_force_n", type number}, {"brake_force_n", type number}, {"rolling_force_n", type number}, {"front_tyre_load_n", type number}, {"rear_tyre_load_n", type number}, {"max_wheel_load_n", type number}, {"tyre_mu", type number}, {"segment_id", Int64.Type}, {"sector_id", Int64.Type}, {"radius_m", Int64.Type}, {"front_downforce_n", type number}, {"rear_downforce_n", type number}, {"downforce_n", type number}, {"drag_n", type number}, {"drag_longitudinal_n", type number}, {"front_height_m", type number}, {"rear_height_m", type number}, {"yaw_deg", Int64.Type}, {"roll_deg", type number}, {"cl_down", type number}, {"cd", type number}, {"front_aero_fraction", type number}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"tyre_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}}, "en-US")
+			in
+				Typed

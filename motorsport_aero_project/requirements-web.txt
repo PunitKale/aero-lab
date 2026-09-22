@@ -1,0 +1,7 @@
+# Small deployment environment; full research dependencies remain in requirements.txt.
+numpy>=2.0,<3
+pandas>=2.2,<3
+scipy>=1.14,<2
+Flask>=3.1,<4
+gunicorn>=23,<24; sys_platform != 'win32'
+waitress>=3,<4

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page08_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "parameter"
+                }
+              },
+              "queryRef": "sensitivity.parameter"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "direction"
+                }
+              },
+              "queryRef": "sensitivity.direction"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "change"
+                }
+              },
+              "queryRef": "sensitivity.change"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "delta_s"
+                }
+              },
+              "queryRef": "sensitivity.delta_s"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "sensitivity.status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity"
+                    }
+                  },
+                  "Property": "circuit_id"
+                }
+              },
+              "queryRef": "sensitivity.circuit_id"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sensitivity and Uncertainty \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

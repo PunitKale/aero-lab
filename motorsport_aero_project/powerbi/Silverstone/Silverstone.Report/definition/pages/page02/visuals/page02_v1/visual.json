@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page02_v1",
+  "position": {
+    "x": 728,
+    "y": 235,
+    "z": 0,
+    "height": 530,
+    "width": 696,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_sector"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "dim_sector.name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Baseline Sector s"
+                }
+              },
+              "queryRef": "fact_lap.Baseline Sector s"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Candidate Sector s"
+                }
+              },
+              "queryRef": "fact_lap.Candidate Sector s"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Baseline and candidate sector times'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

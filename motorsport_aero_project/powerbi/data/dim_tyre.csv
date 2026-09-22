@@ -1,0 +1,4 @@
+tyre_id,name,mu,wear_per_m,optimal_temp_c,load_exponent,reference_load_n,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+1,Soft,1.68,3e-06,90,0.09,2500,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+2,Medium,1.6,2e-06,90,0.09,2500,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+3,Hard,1.52,1.4e-06,90,0.09,2500,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

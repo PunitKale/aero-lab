@@ -1,0 +1,71 @@
+{
+  "data_source": "OpenStreetMap contributors",
+  "source_url": "https://www.openstreetmap.org/relation/51160",
+  "download_url": "https://api.openstreetmap.org/api/0.6/relation/51160/full.json",
+  "source_license": "ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "snapshot_sha256": "ef5bb9237a55a6d438148ad78b870915f4bdb9b7faa48c6c1a44b663cde932a7",
+  "relation_version": 32,
+  "relation_timestamp": "2026-05-10T06:39:37Z",
+  "processed_at_utc": "2026-09-17T16:43:20.271138+00:00",
+  "unique_route_ways": 27,
+  "duplicate_members_removed": 26,
+  "ordered_way_ids": [
+    55224167,
+    169854842,
+    169800226,
+    169800223,
+    169800225,
+    169848882,
+    169800224,
+    169800222,
+    169618242,
+    169618240,
+    169618241,
+    169618245,
+    169609611,
+    169730588,
+    3571477,
+    169730585,
+    169730587,
+    169733768,
+    169730586,
+    430075118,
+    169733766,
+    169733769,
+    169733770,
+    169848880,
+    169848884,
+    169848881,
+    55224168
+  ],
+  "source_warnings": [
+    {
+      "way_id": 169854842,
+      "note": "Estimate"
+    },
+    {
+      "way_id": 169800226,
+      "note": "Estimate"
+    },
+    {
+      "way_id": 169800223,
+      "note": "Estimate"
+    },
+    {
+      "way_id": 169800225,
+      "note": "Estimate"
+    },
+    {
+      "way_id": 169848882,
+      "note": "Estimate"
+    },
+    {
+      "way_id": 169800224,
+      "note": "Estimate"
+    }
+  ],
+  "start_definition": "First node of configured Hamilton Straight way; analytical lap origin, not an official timing-line claim.",
+  "is_synthetic": false,
+  "is_derived": false
+}

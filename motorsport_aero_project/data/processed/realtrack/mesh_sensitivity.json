@@ -1,0 +1,25 @@
+{
+  "circuits": [
+    {
+      "circuit": "Silverstone Grand Prix",
+      "dataset_id": "197ccb7fc1578619449a8faec63e1b288760c05340a8cdf57202b7eb0d7795d2",
+      "production_spacing_m": 5.0,
+      "finer_spacing_m": 2.5,
+      "runs": [
+        {
+          "role": "baseline",
+          "production_s": 120.95197787151059,
+          "finer_mesh_s": 119.97067677540194
+        },
+        {
+          "role": "candidate",
+          "production_s": 120.91559598827556,
+          "finer_mesh_s": 120.00552567208378
+        }
+      ],
+      "production_delta_s": -0.03638188323503755,
+      "finer_delta_s": 0.03484889668183655
+    }
+  ],
+  "note": "Same baseline/candidate, no retuning. Numerical sensitivity only, not measured validation or a confidence interval."
+}

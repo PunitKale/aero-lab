@@ -1,0 +1,65 @@
+table dim_setup
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: name
+
+	column front_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_wing_deg
+
+	column rear_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_wing_deg
+
+	column front_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_height_m
+
+	column rear_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_height_m
+
+	column cl_down
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cl_down
+
+	column cd
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cd
+
+	column vehicle_parameters
+		dataType: string
+		summarizeBy: none
+		sourceColumn: vehicle_parameters
+
+	column data_source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source
+
+	column is_synthetic
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+	partition dim_setup = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="dim_setup"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"setup_id", Int64.Type}, {"name", type text}, {"front_wing_deg", type number}, {"rear_wing_deg", type number}, {"front_height_m", type number}, {"rear_height_m", type number}, {"cl_down", type number}, {"cd", type number}, {"vehicle_parameters", type text}, {"data_source", type text}, {"is_synthetic", type logical}}, "en-US")
+			in
+			    Typed

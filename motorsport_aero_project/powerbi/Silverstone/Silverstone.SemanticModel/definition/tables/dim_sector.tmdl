@@ -1,0 +1,50 @@
+table dim_sector
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column sector_number
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_number
+
+	column name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: name
+
+	column start_distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: start_distance_m
+
+	column end_distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: end_distance_m
+
+	column is_synthetic
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+	column data_source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source
+
+	partition dim_sector = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="dim_sector"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"sector_id", Int64.Type}, {"circuit_id", Int64.Type}, {"sector_number", Int64.Type}, {"name", type text}, {"start_distance_m", type number}, {"end_distance_m", type number}, {"is_synthetic", type logical}, {"data_source", type text}}, "en-US")
+			in
+			    Typed

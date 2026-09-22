@@ -1,0 +1,110 @@
+table run_registry
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column driver_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: driver_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	column drs_available
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: drs_available
+
+	column pair_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: pair_id
+
+	column lap_number
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: lap_number
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition run_registry = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/run_registry.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"run_id", Int64.Type}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"tyre_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"driver_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}, {"drs_available", Int64.Type}, {"pair_id", Int64.Type}, {"lap_number", Int64.Type}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

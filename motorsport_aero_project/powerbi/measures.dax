@@ -1,0 +1,63 @@
+Best Lap Time = MIN(fact_simulation_lap[lap_time_s])
+
+Average Lap Time = AVERAGE(fact_simulation_lap[lap_time_s])
+
+Lap-Time Delta = AVERAGE(recommendations[lap_delta_s])
+
+Best Sector Time = MIN(fact_simulation_sector[sector_time_s])
+
+Sector Delta = VAR SelectedTime = AVERAGE(fact_simulation_sector[sector_time_s]) VAR BaselineTime = CALCULATE(AVERAGE(fact_simulation_sector[sector_time_s]), REMOVEFILTERS(dim_setup), dim_setup[setup_id] = 1, fact_simulation_sector[comparison_group] = "setup_sweep") RETURN SelectedTime - BaselineTime
+
+Average Downforce = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[downforce_n] * fact_vehicle_state[dt_s]), SUM(fact_vehicle_state[dt_s]))
+
+Average Drag = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[drag_n] * fact_vehicle_state[dt_s]), SUM(fact_vehicle_state[dt_s]))
+
+Aero Efficiency = DIVIDE([Average Downforce], [Average Drag])
+
+Front Aero Balance = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[front_downforce_n] * fact_vehicle_state[dt_s]), SUMX(fact_vehicle_state, fact_vehicle_state[downforce_n] * fact_vehicle_state[dt_s]))
+
+Rear Aero Balance = 1 - [Front Aero Balance]
+
+DRS Speed Gain = AVERAGE(drs_comparison[speed_gain_mps])
+
+DRS Time Gain = AVERAGE(drs_comparison[time_gain_s])
+
+Top Speed = MAX(fact_vehicle_state[speed_mps])
+
+Average Corner Speed = CALCULATE(AVERAGE(fact_vehicle_state[speed_mps]), fact_vehicle_state[radius_m] > 0)
+
+Optimization Rank = IF(HASONEVALUE(fact_optimization_result[optimization_run_id]), RANKX(FILTER(ALLSELECTED(fact_optimization_result), fact_optimization_result[feasible] = TRUE()), CALCULATE(MIN(fact_optimization_result[objective_value])), , ASC, DENSE))
+
+Pareto Status = IF(SELECTEDVALUE(fact_optimization_result[pareto]), "Non-dominated", "Dominated or multiple")
+
+Robustness Score = DIVIDE(COUNTROWS(FILTER(uncertainty, uncertainty[feasible] = TRUE() && uncertainty[delta_s] < 0)), COUNTROWS(uncertainty))
+
+Constraint Violation Count = COUNTROWS(FILTER(fact_optimization_result, fact_optimization_result[feasible] = FALSE()))
+
+Prediction Error = BLANK()
+
+Validated Run Count = CALCULATE(DISTINCTCOUNT(fact_model_validation[run_id]), fact_model_validation[passed] = TRUE())
+
+Synthetic Data Percentage = DIVIDE(COUNTROWS(FILTER(fact_simulation_lap, fact_simulation_lap[synthetic_flag] = TRUE())), COUNTROWS(fact_simulation_lap))
+
+Simulated Lap Time = AVERAGE(fact_simulation_lap[lap_time_s])
+
+Simulated Sector Time = AVERAGE(fact_simulation_sector[sector_time_s])
+
+Simulated Top Speed = [Top Speed]
+
+Simulated Maximum Downforce = MAX(fact_vehicle_state[downforce_n])
+
+Simulated Maximum Drag = MAX(fact_vehicle_state[drag_n])
+
+Simulated DRS Gain = [DRS Time Gain]
+
+Simulated Braking Distance = AVERAGE(recommendations[braking_distance_m])
+
+Simulated Corner-Speed Gain = AVERAGE(recommendations[corner_speed_gain_mps])
+
+Simulated Fuel Effect = CALCULATE(AVERAGE(interventions[delta_from_reference_s]), interventions[scenario] = "heavy_fuel")
+
+Simulated Tyre Degradation Effect = CALCULATE(AVERAGE(interventions[delta_from_reference_s]), interventions[scenario] = "worn_tyre")
+
+Simulation-versus-reference error = BLANK()

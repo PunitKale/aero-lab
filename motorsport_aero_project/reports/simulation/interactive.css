@@ -1,0 +1,132 @@
+.setup-panel {
+    border: 1px solid #10263d;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.setup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-row label {
+    min-width: 160px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.control-row input[type=range] {
+    flex-grow: 1;
+    accent-color: #176b91;
+}
+
+.control-row input[type=number] {
+    width: 80px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.unit {
+    min-width: 30px;
+    color: #666;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background-color: #176b91;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #176b91;
+    border: 1px solid #176b91;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #10263d;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+}
+
+.model-banner {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #ffeeba;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    display: none;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #176b91;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.results-area {
+    position: relative;
+    min-height: 200px;
+}
+
+.kpi-empty {
+    opacity: 0.5;
+}
+
+@media (max-width: 850px) {
+    .setup-grid {
+        grid-template-columns: 1fr;
+    }
+}

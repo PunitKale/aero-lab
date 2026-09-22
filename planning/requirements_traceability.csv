@@ -1,0 +1,17 @@
+requirement_id,brief_sections,requirement,planned_stage,acceptance_evidence,status
+REQ01,3;20,Research proposal and twenty Stage 1 items,1,Proposal and planning files,Delivered as design
+REQ02,5;7,Traceable synthetic dataset and SI data contract,2;3,Generator dictionary hashes and quality report,Planned
+REQ03,8,Normalized MySQL schema seeds views queries and backups,3,Live import and reconciliation logs,Planned
+REQ04,6;9,Aerodynamic physics and modular Python package,4,Independent analytical and unit tests,Planned
+REQ05,10;21,Digital car static longitudinal braking cornering and combined simulation,4;5,State traces physical limits and convergence tests,Planned
+REQ06,21;22,Tyre fuel dynamic balance and DRS state evolution,5,State continuity event audits and stint output,Planned
+REQ07,12;23,Simulation-based search objectives and constraints,6,Search benchmark feasible finalists and explanations,Planned
+REQ08,13,Uncertainty sensitivity and honest validation,6;8,Paired scenarios quantiles and evidence classification,Planned
+REQ09,14;22,All 31 Excel sheets and independent engineering formulas,7,Recalculated workbook with reconciliation,Planned
+REQ10,15;22,All 18 Power BI pages model and measures,7,Authored report and observed filter totals,Planned
+REQ11,16,Engineering visualizations with provenance and units,5;6;7,Reviewed plots and charts,Planned
+REQ12,17;21,Unit integration end-to-end and twelve simulator checks,4;5;8,Executed test matrix with failures disclosed,Planned
+REQ13,18,Schedule risks traceability versioning Git and backups,1;8,Planning files and release restore rehearsal,Design delivered; execution planned
+REQ14,19,All 26 final artifacts and 32-chapter report,2;3;4;5;6;7;8,Release manifest and submission checklist,Planned
+REQ15,22,Vehicle-state simulation facts and complete output tables,3;5,Database rows keyed to simulation runs,Planned
+REQ16,23,Full recommendation with sector trade-offs and limitations,6,Matched baseline candidate and uncertainty report,Planned

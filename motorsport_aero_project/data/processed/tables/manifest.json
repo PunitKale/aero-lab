@@ -1,0 +1,106 @@
+{
+  "dim_car.csv": {
+    "sha256": "fe1814eb440e431b58a105cb3d9c1525afb0c7e9b287da11ddfddf9bbe13924d",
+    "bytes": 550
+  },
+  "dim_circuit.csv": {
+    "sha256": "288ddbbeeb19c5538b68234d7a4dfbc8708eec5cfa076782cd21d407755558f7",
+    "bytes": 444
+  },
+  "dim_corner.csv": {
+    "sha256": "24f666774ea37046c7b5f5e0a6d8f5fd5cab1be0e38d1cc03d23cb9a8e8ec0b6",
+    "bytes": 1032
+  },
+  "dim_date.csv": {
+    "sha256": "b27612e33634dc81a86891a467b611fde55084fd058f5d1d78304f8f3eddf446",
+    "bytes": 252
+  },
+  "dim_driver.csv": {
+    "sha256": "b71902724390cd8fc16927ad3526347baeccbb1f8487ae7fcea0aea960b1a106",
+    "bytes": 267
+  },
+  "dim_sector.csv": {
+    "sha256": "0a0ef94d6b5c04496a48385d88daf884cb6cfc6b0c5281cefdfe8112715d1fbe",
+    "bytes": 981
+  },
+  "dim_session.csv": {
+    "sha256": "5aa4938efb6a831b98098ff8d7844fcfc1e3bf3303626ea34bf6ccca8e9ffcd7",
+    "bytes": 439
+  },
+  "dim_setup.csv": {
+    "sha256": "8fbb07bbf423b269fa5955863b584b9abff31482e28d1725057f91a19d376dab",
+    "bytes": 2629
+  },
+  "dim_track_segment.csv": {
+    "sha256": "9cfeb129f73ed1b36723fc3564b4dfa6b882e224d345f395c19db5f2da564fb0",
+    "bytes": 2554
+  },
+  "dim_tyre.csv": {
+    "sha256": "b4f810a2a9f2a91fc346f4a47bb3050a82501950fe2db01721491513ad8b9d11",
+    "bytes": 517
+  },
+  "dim_weather.csv": {
+    "sha256": "b0aa766b7902aa5c2e11bc713902250ec568d722295dd84a3ee9ca129cfd6043",
+    "bytes": 574
+  },
+  "fact_aero_map.csv": {
+    "sha256": "9b253c978928854b6c325aad5b766a0f4f492c965e37f4dacae7e539c1465f31",
+    "bytes": 549926
+  },
+  "fact_drs_event.csv": {
+    "sha256": "a51c9ec15234a2c479c443efc3be9287330a092ed341323f0bdf6ee4f52cead3",
+    "bytes": 18906
+  },
+  "fact_lap.csv": {
+    "sha256": "c086ee921be2c88388fa9bfc206576e32d2d093485dccc4213970cce19426226",
+    "bytes": 26
+  },
+  "fact_model_validation.csv": {
+    "sha256": "16e9c775ce0ecdc3ba0e052fcf7c0ba5af4b959b8d60c19beacc05caf6dfa9be",
+    "bytes": 51152
+  },
+  "fact_optimization_result.csv": {
+    "sha256": "bb17a1e7635ffb45a9072e4e707316efd7bc1ec601f68cd347655c17cde994c2",
+    "bytes": 192709
+  },
+  "fact_optimization_run.csv": {
+    "sha256": "c4fcd73926d036623fa13e97aee687ad13e377ceeab29320c27388de6150b50c",
+    "bytes": 1266
+  },
+  "fact_sector.csv": {
+    "sha256": "b7e2b35bb895b509d3a0c39466af3306e52fc66a18446b2d85ffdca436ede9e9",
+    "bytes": 47
+  },
+  "fact_simulation_lap.csv": {
+    "sha256": "01aa5b6684e80357bdd7e5b7cdb3d945c59810ddc16d8b619dc208168dabb22b",
+    "bytes": 29869
+  },
+  "fact_simulation_sector.csv": {
+    "sha256": "2baf746c29c9b793ee2d20d1a00d0a2c89745ffcf42cde906b9ed5be8b7639cf",
+    "bytes": 9947
+  },
+  "fact_simulation_segment.csv": {
+    "sha256": "bf5a308ae781e17c5a9d0a0c1fa05574cfa19abc996ffc6ab3de77a58065b5ea",
+    "bytes": 37497
+  },
+  "fact_simulation_warning.csv": {
+    "sha256": "b6a916c17b5fe33b5f53635ad69e7ac9a459c5df1ef0ab5615629f85fbb042df",
+    "bytes": 41
+  },
+  "fact_telemetry.csv": {
+    "sha256": "b14d5e3bec44c0f16eb799efd2c17ef4851877a889f35975cbe9f166e46244d2",
+    "bytes": 44
+  },
+  "fact_tyre_state.csv": {
+    "sha256": "f5b1418d1a99a8aced52eff25e7f42b530411ab6cd613fc11e33bc3c5296e467",
+    "bytes": 448131
+  },
+  "fact_vehicle_state.csv": {
+    "sha256": "83df8ad88e099c8c3380c5dcf3e31dc171bebc67e6fadd28c4524eefd0c87783",
+    "bytes": 13303695
+  },
+  "run_registry.csv": {
+    "sha256": "5eeb5fa6d06db965791e6ac9a151ebe72f6a44d1e7c4edb519862cab2e5dd07f",
+    "bytes": 16607
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page02_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_circuit"
+                    }
+                  },
+                  "Property": "circuit_name"
+                }
+              },
+              "queryRef": "dim_circuit.circuit_name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_simulation_lap"
+                    }
+                  },
+                  "Property": "Lap-Time Delta"
+                }
+              },
+              "queryRef": "fact_simulation_lap.Lap-Time Delta"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Setup Recommendation \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

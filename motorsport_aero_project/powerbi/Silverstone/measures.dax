@@ -1,0 +1,37 @@
+Lap Time s = IF(HASONEVALUE(fact_lap[run_id]), MAX(fact_lap[lap_time_s]))
+
+Baseline Lap s = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Lap Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "baseline"))
+
+Candidate Lap s = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Lap Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "candidate"))
+
+Lap Delta s = IF(NOT ISBLANK([Candidate Lap s]) && NOT ISBLANK([Baseline Lap s]), [Candidate Lap s] - [Baseline Lap s])
+
+Average Speed kmh = DIVIDE(SUM(fact_telemetry[step_m]), SUM(fact_telemetry[dt_s])) * 3.6
+
+Max Speed kmh = MAX(fact_telemetry[speed_mps]) * 3.6
+
+Average Downforce N = DIVIDE(SUMX(fact_telemetry, fact_telemetry[downforce_n] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+
+Average Drag N = DIVIDE(SUMX(fact_telemetry, fact_telemetry[drag_n] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+
+Aero Efficiency = DIVIDE([Average Downforce N], [Average Drag N])
+
+Tyre Wear Change pct = IF(HASONEVALUE(fact_telemetry[run_id]), SUMX(fact_telemetry, fact_telemetry[tyre_wear_end] - fact_telemetry[tyre_wear]) * 100)
+
+Sector Time s = IF(HASONEVALUE(fact_sector[run_id]), SUM(fact_sector[sector_time_s]))
+
+Baseline Sector s = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Sector Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "baseline"))
+
+Candidate Sector s = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Sector Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "candidate"))
+
+Sector Delta s = IF(NOT ISBLANK([Candidate Sector s]) && NOT ISBLANK([Baseline Sector s]), [Candidate Sector s] - [Baseline Sector s])
+
+Average Acceleration mps2 = DIVIDE(SUMX(fact_telemetry, fact_telemetry[acceleration_mps2] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+
+Map East m = AVERAGE(fact_telemetry[x_m])
+
+Map North m = AVERAGE(fact_telemetry[y_m])
+
+Setup Rank = IF(NOT ISBLANK([Lap Time s]), RANKX(FILTER(ALLSELECTED(dim_setup), NOT ISBLANK(CALCULATE([Lap Time s]))), [Lap Time s], , ASC, DENSE))
+
+Model-generated share = DIVIDE(CALCULATE(COUNTROWS(fact_telemetry), fact_telemetry[is_synthetic] = TRUE()), COUNTROWS(fact_telemetry))

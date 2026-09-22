@@ -1,0 +1,3 @@
+expression MySQLServer = "127.0.0.1:3307" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+expression MySQLDatabase = "aero_lab_real" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]

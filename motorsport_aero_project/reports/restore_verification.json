@@ -1,0 +1,33 @@
+{
+  "database": "motorsport_aero_restore_check",
+  "table_counts": {
+    "dim_car": 1,
+    "dim_circuit": 3,
+    "dim_date": 1,
+    "dim_driver": 1,
+    "dim_sector": 9,
+    "dim_session": 3,
+    "dim_setup": 15,
+    "dim_track_segment": 18,
+    "dim_tyre": 3,
+    "dim_weather": 3,
+    "fact_aero_map": 3240,
+    "fact_optimization_run": 11,
+    "run_registry": 133,
+    "dim_corner": 9,
+    "fact_drs_event": 260,
+    "fact_lap": 0,
+    "fact_model_validation": 1064,
+    "fact_optimization_result": 746,
+    "fact_sector": 0,
+    "fact_simulation_lap": 133,
+    "fact_simulation_sector": 399,
+    "fact_simulation_segment": 798,
+    "fact_simulation_warning": 0,
+    "fact_telemetry": 0,
+    "fact_tyre_state": 6569,
+    "fact_vehicle_state": 32424
+  },
+  "all_counts_match": true,
+  "lap_time_sum_s": 5519.900958560396
+}

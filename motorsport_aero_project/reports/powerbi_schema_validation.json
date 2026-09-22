@@ -1,0 +1,6 @@
+{
+  "files_checked": 186,
+  "errors": [],
+  "desktop_rendered": false,
+  "note": "JSON schema validation does not execute DAX, parse TMDL or verify visual rendering."
+}

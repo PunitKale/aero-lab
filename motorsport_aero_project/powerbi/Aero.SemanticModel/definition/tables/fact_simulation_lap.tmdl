@@ -1,0 +1,256 @@
+table fact_simulation_lap
+	column simulation_lap_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: simulation_lap_id
+
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column lap_time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_time_s
+
+	column top_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_mps
+
+	column fuel_used_kg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: fuel_used_kg
+
+	column tyre_wear_end
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_end
+
+	column tyre_wear_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_delta
+
+	column distance_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: distance_m
+
+	column high_speed_corner_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: high_speed_corner_mps
+
+	column braking_distance_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: braking_distance_m
+
+	column mean_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mean_downforce_n
+
+	column mean_drag_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mean_drag_n
+
+	column max_tyre_load_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: max_tyre_load_n
+
+	column solver_iterations
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: solver_iterations
+
+	column shift_loss_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: shift_loss_s
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	measure 'Best Lap Time' = MIN(fact_simulation_lap[lap_time_s])
+		formatString: 0.000
+
+	measure 'Average Lap Time' = AVERAGE(fact_simulation_lap[lap_time_s])
+		formatString: 0.000
+
+	measure 'Lap-Time Delta' = AVERAGE(recommendations[lap_delta_s])
+		formatString: 0.000
+
+	measure 'Best Sector Time' = MIN(fact_simulation_sector[sector_time_s])
+		formatString: 0.000
+
+	measure 'Sector Delta' = VAR SelectedTime = AVERAGE(fact_simulation_sector[sector_time_s]) VAR BaselineTime = CALCULATE(AVERAGE(fact_simulation_sector[sector_time_s]), REMOVEFILTERS(dim_setup), dim_setup[setup_id] = 1, fact_simulation_sector[comparison_group] = "setup_sweep") RETURN SelectedTime - BaselineTime
+		formatString: 0.000
+
+	measure 'Average Downforce' = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[downforce_n] * fact_vehicle_state[dt_s]), SUM(fact_vehicle_state[dt_s]))
+		formatString: 0.000
+
+	measure 'Average Drag' = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[drag_n] * fact_vehicle_state[dt_s]), SUM(fact_vehicle_state[dt_s]))
+		formatString: 0.000
+
+	measure 'Aero Efficiency' = DIVIDE([Average Downforce], [Average Drag])
+		formatString: 0.000
+
+	measure 'Front Aero Balance' = DIVIDE(SUMX(fact_vehicle_state, fact_vehicle_state[front_downforce_n] * fact_vehicle_state[dt_s]), SUMX(fact_vehicle_state, fact_vehicle_state[downforce_n] * fact_vehicle_state[dt_s]))
+		formatString: 0.000
+
+	measure 'Rear Aero Balance' = 1 - [Front Aero Balance]
+		formatString: 0.000
+
+	measure 'DRS Speed Gain' = AVERAGE(drs_comparison[speed_gain_mps])
+		formatString: 0.000
+
+	measure 'DRS Time Gain' = AVERAGE(drs_comparison[time_gain_s])
+		formatString: 0.000
+
+	measure 'Top Speed' = MAX(fact_vehicle_state[speed_mps])
+		formatString: 0.000
+
+	measure 'Average Corner Speed' = CALCULATE(AVERAGE(fact_vehicle_state[speed_mps]), fact_vehicle_state[radius_m] > 0)
+		formatString: 0.000
+
+	measure 'Optimization Rank' = IF(HASONEVALUE(fact_optimization_result[optimization_run_id]), RANKX(FILTER(ALLSELECTED(fact_optimization_result), fact_optimization_result[feasible] = TRUE()), CALCULATE(MIN(fact_optimization_result[objective_value])), , ASC, DENSE))
+		formatString: 0.000
+
+	measure 'Pareto Status' = IF(SELECTEDVALUE(fact_optimization_result[pareto]), "Non-dominated", "Dominated or multiple")
+		formatString: 0.000
+
+	measure 'Robustness Score' = DIVIDE(COUNTROWS(FILTER(uncertainty, uncertainty[feasible] = TRUE() && uncertainty[delta_s] < 0)), COUNTROWS(uncertainty))
+		formatString: 0.000
+
+	measure 'Constraint Violation Count' = COUNTROWS(FILTER(fact_optimization_result, fact_optimization_result[feasible] = FALSE()))
+		formatString: 0.000
+
+	measure 'Prediction Error' = BLANK()
+		formatString: 0.000
+
+	measure 'Validated Run Count' = CALCULATE(DISTINCTCOUNT(fact_model_validation[run_id]), fact_model_validation[passed] = TRUE())
+		formatString: 0.000
+
+	measure 'Synthetic Data Percentage' = DIVIDE(COUNTROWS(FILTER(fact_simulation_lap, fact_simulation_lap[synthetic_flag] = TRUE())), COUNTROWS(fact_simulation_lap))
+		formatString: 0.000
+
+	measure 'Simulated Lap Time' = AVERAGE(fact_simulation_lap[lap_time_s])
+		formatString: 0.000
+
+	measure 'Simulated Sector Time' = AVERAGE(fact_simulation_sector[sector_time_s])
+		formatString: 0.000
+
+	measure 'Simulated Top Speed' = [Top Speed]
+		formatString: 0.000
+
+	measure 'Simulated Maximum Downforce' = MAX(fact_vehicle_state[downforce_n])
+		formatString: 0.000
+
+	measure 'Simulated Maximum Drag' = MAX(fact_vehicle_state[drag_n])
+		formatString: 0.000
+
+	measure 'Simulated DRS Gain' = [DRS Time Gain]
+		formatString: 0.000
+
+	measure 'Simulated Braking Distance' = AVERAGE(recommendations[braking_distance_m])
+		formatString: 0.000
+
+	measure 'Simulated Corner-Speed Gain' = AVERAGE(recommendations[corner_speed_gain_mps])
+		formatString: 0.000
+
+	measure 'Simulated Fuel Effect' = CALCULATE(AVERAGE(interventions[delta_from_reference_s]), interventions[scenario] = "heavy_fuel")
+		formatString: 0.000
+
+	measure 'Simulated Tyre Degradation Effect' = CALCULATE(AVERAGE(interventions[delta_from_reference_s]), interventions[scenario] = "worn_tyre")
+		formatString: 0.000
+
+	measure 'Simulation-versus-reference error' = BLANK()
+		formatString: 0.000
+
+	partition fact_simulation_lap = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_simulation_lap.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"simulation_lap_id", Int64.Type}, {"run_id", Int64.Type}, {"lap_time_s", type number}, {"top_speed_mps", type number}, {"fuel_used_kg", type number}, {"tyre_wear_end", type number}, {"tyre_wear_delta", type number}, {"distance_m", Int64.Type}, {"high_speed_corner_mps", type number}, {"braking_distance_m", Int64.Type}, {"mean_downforce_n", type number}, {"mean_drag_n", type number}, {"max_tyre_load_n", type number}, {"solver_iterations", Int64.Type}, {"shift_loss_s", type number}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"tyre_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}}, "en-US")
+			in
+				Typed

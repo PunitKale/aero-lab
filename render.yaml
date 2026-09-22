@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aero-lab
+    runtime: python
+    plan: free
+    rootDir: motorsport_aero_project
+    buildCommand: pip install -r requirements-web.txt
+    startCommand: gunicorn src.realtrack.web:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 90 --access-logfile -
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: OPENBLAS_NUM_THREADS
+        value: '1'
+      - key: OMP_NUM_THREADS
+        value: '1'

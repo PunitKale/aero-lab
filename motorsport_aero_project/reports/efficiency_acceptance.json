@@ -1,0 +1,20 @@
+{
+  "tests_passed": 33,
+  "benchmark_python_s": {
+    "before_changed": 0.277,
+    "before_repeat": 0.271,
+    "after_changed": 0.146,
+    "after_repeat": 0.012
+  },
+  "browser_checks": [
+    "5m versus 2.5m sign reversal shown as inconclusive",
+    "deferred speed chart rendered on scroll",
+    "no recorded JS errors"
+  ],
+  "http_checks": [
+    "gzip",
+    "gzip;q=0.5",
+    "gzip;q=0"
+  ],
+  "real_world_accuracy": "unvalidated"
+}

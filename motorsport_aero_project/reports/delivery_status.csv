@@ -1,0 +1,13 @@
+deliverable,status,path
+Research proposal,implemented,../reports/stage_1_project_proposal.md
+Python simulator and optimization,implemented,src/
+Synthetic dataset,implemented,data/
+MySQL schema and actual seed,executed and reconciled,sql/
+Excel workbook,recalculated and reconciled,outputs/aero-release/Motorsport_Aero_Engineering.xlsx
+Power BI source project,authored; Desktop acceptance outstanding,powerbi/Aero.pbip
+Standalone local viewer,implemented; supplementary to Power BI,reports/dashboard.html
+Measured-car validation,unavailable: independent data required,reports/validation_report.md
+Tests,executed,reports/tests.xml
+32-chapter report and guides,implemented,reports/technical_report.md
+Presentation outline and demonstration,implemented,docs/presentation_outline.md
+Advanced transient physics,future research,docs/future_work.md

@@ -1,0 +1,10 @@
+sector_id,circuit_id,sector_name,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+11,1,Sector 1,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+12,1,Sector 2,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+13,1,Sector 3,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+21,2,Sector 1,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+22,2,Sector 2,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+23,2,Sector 3,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+31,3,Sector 1,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+32,3,Sector 2,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+33,3,Sector 3,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

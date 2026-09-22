@@ -1,0 +1,75 @@
+table dim_circuit
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: name
+
+	column slug
+		dataType: string
+		summarizeBy: none
+		sourceColumn: slug
+
+	column length_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: length_m
+
+	column origin_lon
+		dataType: double
+		summarizeBy: none
+		sourceColumn: origin_lon
+
+	column origin_lat
+		dataType: double
+		summarizeBy: none
+		sourceColumn: origin_lat
+
+	column projection
+		dataType: string
+		summarizeBy: none
+		sourceColumn: projection
+
+	column source_url
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_url
+
+	column source_license
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_license
+
+	column snapshot_sha256
+		dataType: string
+		summarizeBy: none
+		sourceColumn: snapshot_sha256
+
+	column data_source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source
+
+	column is_synthetic
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+	column geometry_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: geometry_version
+
+	partition dim_circuit = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="dim_circuit"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"circuit_id", Int64.Type}, {"name", type text}, {"slug", type text}, {"length_m", type number}, {"origin_lon", type number}, {"origin_lat", type number}, {"projection", type text}, {"source_url", type text}, {"source_license", type text}, {"snapshot_sha256", type text}, {"data_source", type text}, {"is_synthetic", type logical}, {"geometry_version", type text}}, "en-US")
+			in
+			    Typed

@@ -1,0 +1,19 @@
+{
+  "view_column_sets_passed": [
+    "dim_circuit",
+    "dim_setup",
+    "dim_sector",
+    "dim_run",
+    "fact_lap",
+    "fact_sector",
+    "fact_telemetry"
+  ],
+  "analysis_query_row_counts": [
+    1,
+    10,
+    3,
+    10,
+    0
+  ],
+  "reconciliation_query_mismatches": 0
+}

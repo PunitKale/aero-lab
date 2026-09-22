@@ -1,0 +1,155 @@
+table fact_optimization_result
+	column optimization_result_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: optimization_result_id
+
+	column optimization_run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: optimization_run_id
+
+	column front_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_wing_deg
+
+	column rear_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_wing_deg
+
+	column front_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_height_m
+
+	column rear_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_height_m
+
+	column package
+		dataType: string
+		summarizeBy: none
+		sourceColumn: package
+
+	column method
+		dataType: string
+		summarizeBy: none
+		sourceColumn: method
+
+	column objective
+		dataType: string
+		summarizeBy: none
+		sourceColumn: objective
+
+	column lap_time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_time_s
+
+	column top_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_mps
+
+	column fuel_used_kg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: fuel_used_kg
+
+	column tyre_wear_end
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_end
+
+	column tyre_wear_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_delta
+
+	column distance_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: distance_m
+
+	column high_speed_corner_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: high_speed_corner_mps
+
+	column braking_distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: braking_distance_m
+
+	column mean_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mean_downforce_n
+
+	column mean_drag_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mean_drag_n
+
+	column max_tyre_load_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: max_tyre_load_n
+
+	column solver_iterations
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: solver_iterations
+
+	column shift_loss_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: shift_loss_s
+
+	column feasible
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: feasible
+
+	column constraint_reasons
+		dataType: string
+		summarizeBy: none
+		sourceColumn: constraint_reasons
+
+	column objective_value
+		dataType: double
+		summarizeBy: none
+		sourceColumn: objective_value
+
+	column pareto
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: pareto
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column objective_run
+		dataType: string
+		summarizeBy: none
+		sourceColumn: objective_run
+
+	column seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: seed
+
+	partition fact_optimization_result = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_optimization_result.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"optimization_result_id", Int64.Type}, {"optimization_run_id", Int64.Type}, {"front_wing_deg", type number}, {"rear_wing_deg", type number}, {"front_height_m", type number}, {"rear_height_m", type number}, {"package", type text}, {"method", type text}, {"objective", type text}, {"lap_time_s", type number}, {"top_speed_mps", type number}, {"fuel_used_kg", type number}, {"tyre_wear_end", type number}, {"tyre_wear_delta", type number}, {"distance_m", Int64.Type}, {"high_speed_corner_mps", type number}, {"braking_distance_m", type number}, {"mean_downforce_n", type number}, {"mean_drag_n", type number}, {"max_tyre_load_n", type number}, {"solver_iterations", Int64.Type}, {"shift_loss_s", type number}, {"feasible", type logical}, {"constraint_reasons", type text}, {"objective_value", type number}, {"pareto", type logical}, {"circuit_id", Int64.Type}, {"objective_run", type text}, {"seed", Int64.Type}}, "en-US")
+			in
+				Typed

@@ -1,0 +1,15 @@
+.venv/
+.venv312/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.runtime/
+*.zip
+.env.*
+!.env.example
+*.pem
+*.key
+node_modules/
+*.log
+motorsport_aero_project/data/processed/*.sqlite

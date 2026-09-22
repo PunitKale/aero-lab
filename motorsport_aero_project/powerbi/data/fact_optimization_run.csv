@@ -1,0 +1,12 @@
+optimization_run_id,circuit_id,objective,seed,evaluation_count,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+1,1,qualifying,42,95,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+2,2,qualifying,42,95,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+3,2,qualifying,43,112,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+4,2,qualifying,44,96,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+5,2,qualifying,45,112,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+6,2,qualifying,46,96,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+7,3,qualifying,42,112,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+8,2,race,42,7,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+9,2,overtaking,42,7,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+10,2,high_downforce,42,7,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked
+11,2,wet,42,7,simulated,True,1.0.0,1.0.0,2026-09-16T20:12:09.955027+00:00,42,schema_checked

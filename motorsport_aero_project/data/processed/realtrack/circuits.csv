@@ -1,0 +1,2 @@
+circuit_id,name,slug,length_m,origin_lon,origin_lat,projection,source_url,source_license,snapshot_sha256,data_source,is_synthetic,geometry_version
+101,Silverstone Grand Prix,silverstone,5887.32698726564,-1.0240046,52.0678435,WGS84 ECEF to local east/north tangent plane; altitude 0 m,https://www.openstreetmap.org/relation/51160,ODbL-1.0,ef5bb9237a55a6d438148ad78b870915f4bdb9b7faa48c6c1a44b663cde932a7,OpenStreetMap contributors,False,OSM-v32-sigma4.0-ds5.0

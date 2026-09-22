@@ -1,0 +1,1 @@
+expression DataFolder = "C:/Users/punit/OneDrive/Documents/ChatGPT/Aerodynamic setup optimization/motorsport_aero_project/powerbi/data" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]

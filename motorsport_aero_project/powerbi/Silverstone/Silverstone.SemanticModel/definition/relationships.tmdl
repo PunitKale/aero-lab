@@ -1,0 +1,54 @@
+relationship 6c03aada-73eb-5b4f-9b08-f2a3f58deeba
+	fromColumn: fact_lap.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 740d5e6f-9775-5645-9a5c-8fe9d04342c1
+	fromColumn: fact_lap.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship bf94cb2e-d764-51d3-8407-06f739f59a17
+	fromColumn: fact_lap.run_id
+	toColumn: dim_run.run_id
+	crossFilteringBehavior: oneDirection
+
+relationship 66b63ff5-8bd0-509e-be92-34080057221c
+	fromColumn: fact_sector.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 3624acfe-ad6f-5e05-af05-1c27dc67b867
+	fromColumn: fact_sector.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship b519107e-854b-5308-883a-36f65126bc84
+	fromColumn: fact_sector.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 0777e6b0-46a8-5a2f-b1f4-0d656f56d955
+	fromColumn: fact_sector.run_id
+	toColumn: dim_run.run_id
+	crossFilteringBehavior: oneDirection
+
+relationship cdedcfee-1f44-5b09-b06a-5b7c982f55ac
+	fromColumn: fact_telemetry.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 76c2f900-2c4c-568e-9f4b-db479fbc5f33
+	fromColumn: fact_telemetry.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship b66e32ff-6562-5955-87e9-ce365a67f361
+	fromColumn: fact_telemetry.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 7bc444bb-6188-5ace-95cb-6520521afc4c
+	fromColumn: fact_telemetry.run_id
+	toColumn: dim_run.run_id
+	crossFilteringBehavior: oneDirection

@@ -1,0 +1,2 @@
+date_id,date_iso,year,month,day,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+20260917,2026-09-17,2026,9,17,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

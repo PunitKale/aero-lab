@@ -1,0 +1,6 @@
+"quantity","reference","excel_result","difference","passed"
+"Dynamic pressure","1531.25","1531.25","0","True"
+"Downforce","6890.625","6890.625","0","True"
+"Drag","2067.1875","2067.1875","0","True"
+"Drag power","103359.375","103359.375","0","True"
+"Lap sector sum","38.34840883774976","38.34840883774977","0","True"

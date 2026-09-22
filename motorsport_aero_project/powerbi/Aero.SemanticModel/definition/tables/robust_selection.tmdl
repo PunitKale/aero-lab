@@ -1,0 +1,75 @@
+table robust_selection
+	column candidate
+		dataType: string
+		summarizeBy: none
+		sourceColumn: candidate
+
+	column front_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_wing_deg
+
+	column rear_wing_deg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_wing_deg
+
+	column front_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_height_m
+
+	column rear_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_height_m
+
+	column package
+		dataType: string
+		summarizeBy: none
+		sourceColumn: package
+
+	column valid_draws
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: valid_draws
+
+	column draws
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: draws
+
+	column mean_lap_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: mean_lap_s
+
+	column sd_lap_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: sd_lap_s
+
+	column robust_objective_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: robust_objective_s
+
+	column feasible_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: feasible_fraction
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	partition robust_selection = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/robust_selection.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"candidate", type text}, {"front_wing_deg", type number}, {"rear_wing_deg", type number}, {"front_height_m", type number}, {"rear_height_m", type number}, {"package", type text}, {"valid_draws", Int64.Type}, {"draws", Int64.Type}, {"mean_lap_s", type number}, {"sd_lap_s", type number}, {"robust_objective_s", type number}, {"feasible_fraction", type number}, {"circuit_id", Int64.Type}}, "en-US")
+			in
+				Typed

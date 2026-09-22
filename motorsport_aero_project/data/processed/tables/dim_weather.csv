@@ -1,0 +1,4 @@
+weather_id,name,pressure_pa,temperature_k,grip,headwind_mps,crosswind_mps,aero_multiplier,density_multiplier,height_offset_m,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+1,Dry,101325,288.15,1,0,0,1,1,0,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+2,Hot,97000,310.15,0.97,0,0,1,1,0,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+3,Wet,100500,285.15,0.68,0,0,1,1,0,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page10_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality"
+                    }
+                  },
+                  "Property": "table_name"
+                }
+              },
+              "queryRef": "data_quality.table_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality"
+                    }
+                  },
+                  "Property": "row_count"
+                }
+              },
+              "queryRef": "data_quality.row_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality"
+                    }
+                  },
+                  "Property": "duplicate_rows"
+                }
+              },
+              "queryRef": "data_quality.duplicate_rows"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality"
+                    }
+                  },
+                  "Property": "missing_cells"
+                }
+              },
+              "queryRef": "data_quality.missing_cells"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality"
+                    }
+                  },
+                  "Property": "synthetic_percentage"
+                }
+              },
+              "queryRef": "data_quality.synthetic_percentage"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data Quality \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

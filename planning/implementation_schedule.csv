@@ -1,0 +1,13 @@
+task_id,phase,start_week,end_week,effort_hours,dependencies,deliverable,risk,acceptance_criterion,report_evidence
+P01,Literature and problem definition,1,2,24,,Source ledger and proposal,Unsupported claims,Reviewed sources and research questions,Literature matrix
+P02,Requirements and architecture,2,3,24,P01 draft,Versioned contracts,Ambiguous units,All core units and grains specified,Architecture and requirements matrix
+P03,Synthetic dataset and dictionary,3,4,32,P02,Generator and data dictionary,Unphysical relationships,Deterministic generation and QA pass,Data manifest and quality report
+P04,MySQL database,4,5,28,P03 contract,Schema seeds views and loader,Runtime unavailable,Live transactional import and round trip pass,SQL logs and relationship diagram
+P05,Python physics,5,6,36,P02;P03,Aero vehicle and tyre modules,Incorrect conventions,Analytical component tests pass,Equations and test output
+P06,Vehicle and lap simulation,6,9,64,P05,Digital car lap and stint simulator,Discontinuous or unstable integration,State continuity DRS policy and convergence pass,Traces and convergence table
+P07,Optimization and uncertainty,9,12,56,P06,Search comparison and robust recommendations,Optimizer exploits model,Feasible finalists checked on fresh scenarios,Pareto plot and candidate logs
+P08,Excel engineering workbook,12,13,24,P04;P07,31-sheet engineering workbook,Unrecalculated formulas,Spreadsheet recalculated and values reconciled,Formula checks and residual table
+P09,Power BI report,13,14,28,P04;P07,18-page report and semantic model,Unavailable authoring environment,Authored report and filter totals verified,Report screenshots and exported totals
+P10,Validation and testing,14,15,32,P08;P09,Validation report,Synthetic checks mistaken for external validity,All mandatory test outcomes documented,Test matrix and limitation register
+P11,Results and discussion,15,16,24,P07;P10,Results chapter and full report,Overstated improvement,Every quantitative claim references a run,Tables figures and provenance
+P12,Final delivery,16,16,20,P11,Guides presentation outline and demonstration,Unreproducible installation,Clean-run rehearsal and release manifest,Demo checklist and release hash

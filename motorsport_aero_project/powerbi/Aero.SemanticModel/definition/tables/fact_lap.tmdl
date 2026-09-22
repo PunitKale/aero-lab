@@ -1,0 +1,25 @@
+table fact_lap
+	column lap_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: lap_id
+
+	column run_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column lap_time_s
+		dataType: string
+		summarizeBy: none
+		sourceColumn: lap_time_s
+
+	partition fact_lap = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_lap.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"lap_id", type text}, {"run_id", type text}, {"lap_time_s", type text}}, "en-US")
+			in
+				Typed

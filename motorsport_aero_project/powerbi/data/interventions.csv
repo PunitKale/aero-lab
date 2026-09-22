@@ -1,0 +1,4 @@
+scenario,initial_fuel_kg,initial_wear,lap_time_s,circuit_id,setup_id,delta_from_reference_s
+reference,10,0,38.3484088377,2,14,0
+heavy_fuel,60,0,39.1271550561,2,14,0.778746218306
+worn_tyre,10,0.15,41.8417298507,2,14,3.49332101299

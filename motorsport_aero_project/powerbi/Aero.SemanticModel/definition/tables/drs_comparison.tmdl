@@ -1,0 +1,55 @@
+table drs_comparison
+	column pair_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: pair_id
+
+	column lap_time_s_off
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_time_s_off
+
+	column top_speed_mps_off
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_mps_off
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column lap_time_s_on
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_time_s_on
+
+	column top_speed_mps_on
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_mps_on
+
+	column time_gain_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: time_gain_s
+
+	column speed_gain_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: speed_gain_mps
+
+	partition drs_comparison = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/drs_comparison.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"pair_id", Int64.Type}, {"lap_time_s_off", type number}, {"top_speed_mps_off", type number}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"lap_time_s_on", type number}, {"top_speed_mps_on", type number}, {"time_gain_s", type number}, {"speed_gain_mps", type number}}, "en-US")
+			in
+				Typed

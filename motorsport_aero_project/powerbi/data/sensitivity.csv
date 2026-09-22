@@ -1,0 +1,9 @@
+parameter,direction,change,delta_s,status,circuit_id
+front_wing_deg,-1,-0.75,0.0490619957416,simulated,2
+front_wing_deg,1,0.75,0.0376873509271,simulated,2
+rear_wing_deg,-1,-1,0.0683863892487,simulated,2
+rear_wing_deg,1,1,0.0451230053708,simulated,2
+front_height_m,-1,-0.0015,0.048253910162,simulated,2
+front_height_m,1,0.0015,-0.0280878597844,simulated,2
+rear_height_m,-1,-0.00225,0.012236074573,simulated,2
+rear_height_m,1,0.00225,-0.00356911859877,simulated,2

@@ -1,0 +1,234 @@
+{
+  "Velocity Park": {
+    "circuit": "Velocity Park",
+    "setup_id": 13,
+    "setup": {
+      "front_wing_deg": 16.532279633393614,
+      "rear_wing_deg": 15.180591949593744,
+      "front_height_m": 0.0351689561244392,
+      "rear_height_m": 0.06072621129700724,
+      "package": "standard"
+    },
+    "baseline": {
+      "lap_time_s": 49.59752264064856,
+      "top_speed_mps": 83.89733951158058,
+      "fuel_used_kg": 1.47,
+      "tyre_wear_end": 0.019984366063126636,
+      "tyre_wear_delta": 0.019984366063126636,
+      "distance_m": 2940.0,
+      "high_speed_corner_mps": 57.684375213459134,
+      "braking_distance_m": 220.0,
+      "mean_downforce_n": 11727.40335657738,
+      "mean_drag_n": 2519.236163393961,
+      "max_tyre_load_n": 8611.880291240106,
+      "solver_iterations": 18,
+      "shift_loss_s": 0.56
+    },
+    "candidate": {
+      "lap_time_s": 49.232189066377465,
+      "top_speed_mps": 87.02722276245224,
+      "fuel_used_kg": 1.47,
+      "tyre_wear_end": 0.019971188276888412,
+      "tyre_wear_delta": 0.019971188276888412,
+      "distance_m": 2940.0,
+      "high_speed_corner_mps": 57.35697040054947,
+      "braking_distance_m": 230.0,
+      "mean_downforce_n": 11495.715330576113,
+      "mean_drag_n": 2189.5761179453384,
+      "max_tyre_load_n": 8586.973574482749,
+      "solver_iterations": 18,
+      "shift_loss_s": 0.64
+    },
+    "lap_delta_s": -0.3653335742710979,
+    "constraints": [],
+    "braking_baseline": {
+      "braking_distance_m": 87.53769455702233,
+      "braking_time_s": 1.6503568381092824
+    },
+    "braking_candidate": {
+      "braking_distance_m": 88.96884570302048,
+      "braking_time_s": 1.675660502461435
+    },
+    "drs_time_gain_s": 0.38933923383996216,
+    "sector_comparison": [
+      {
+        "sector_id": 11,
+        "sector_time_s_baseline": 18.626936943497043,
+        "sector_time_s_candidate": 18.37164893258275,
+        "delta_s": -0.2552880109142919
+      },
+      {
+        "sector_id": 12,
+        "sector_time_s_baseline": 16.270283780097728,
+        "sector_time_s_candidate": 16.183955519169977,
+        "delta_s": -0.08632826092775048
+      },
+      {
+        "sector_id": 13,
+        "sector_time_s_baseline": 14.700301917053801,
+        "sector_time_s_candidate": 14.676584614624739,
+        "delta_s": -0.02371730242906267
+      }
+    ]
+  },
+  "Apex Ring": {
+    "circuit": "Apex Ring",
+    "setup_id": 14,
+    "setup": {
+      "front_wing_deg": 15.62434051064092,
+      "rear_wing_deg": 14.458158019199306,
+      "front_height_m": 0.029872161578330482,
+      "rear_height_m": 0.05832128435803828,
+      "package": "standard"
+    },
+    "baseline": {
+      "lap_time_s": 38.86932689810983,
+      "top_speed_mps": 84.1748677048407,
+      "fuel_used_kg": 1.18,
+      "tyre_wear_end": 0.01703212915175955,
+      "tyre_wear_delta": 0.01703212915175955,
+      "distance_m": 2360.0,
+      "high_speed_corner_mps": 66.66088888574347,
+      "braking_distance_m": 140.0,
+      "mean_downforce_n": 12483.693554510193,
+      "mean_drag_n": 2693.773491094806,
+      "max_tyre_load_n": 11252.222358684616,
+      "solver_iterations": 17,
+      "shift_loss_s": 0.48
+    },
+    "candidate": {
+      "lap_time_s": 38.34840883774976,
+      "top_speed_mps": 89.01559846488377,
+      "fuel_used_kg": 1.18,
+      "tyre_wear_end": 0.016884808774922586,
+      "tyre_wear_delta": 0.016884808774922586,
+      "distance_m": 2360.0,
+      "high_speed_corner_mps": 67.91812111855914,
+      "braking_distance_m": 170.0,
+      "mean_downforce_n": 11975.97608584514,
+      "mean_drag_n": 2258.801852900981,
+      "max_tyre_load_n": 11398.680501438545,
+      "solver_iterations": 17,
+      "shift_loss_s": 0.48000000000000004
+    },
+    "lap_delta_s": -0.5209180603600743,
+    "constraints": [],
+    "braking_baseline": {
+      "braking_distance_m": 87.53769455702233,
+      "braking_time_s": 1.6503568381092824
+    },
+    "braking_candidate": {
+      "braking_distance_m": 89.53663917165414,
+      "braking_time_s": 1.6870295897959076
+    },
+    "drs_time_gain_s": 0.2948147966470742,
+    "sector_comparison": [
+      {
+        "sector_id": 21,
+        "sector_time_s_baseline": 12.30366148159847,
+        "sector_time_s_candidate": 11.999310845888987,
+        "delta_s": -0.30435063570948273
+      },
+      {
+        "sector_id": 22,
+        "sector_time_s_baseline": 14.544435499803013,
+        "sector_time_s_candidate": 14.529981395798178,
+        "delta_s": -0.0144541040048356
+      },
+      {
+        "sector_id": 23,
+        "sector_time_s_baseline": 12.02122991670835,
+        "sector_time_s_candidate": 11.819116596062596,
+        "delta_s": -0.20211332064575416
+      }
+    ],
+    "uncertainty": {
+      "draws": 200,
+      "valid_draws": 200,
+      "feasible_fraction": 1.0,
+      "mean_delta_s": -0.3779882441510921,
+      "median_delta_s": -0.46581334314359424,
+      "std_delta_s": 0.23901798407093647,
+      "p025_delta_s": -0.656660985145556,
+      "p975_delta_s": 0.08489541625971726,
+      "observed_best_delta_s": -0.6678781822770006,
+      "observed_worst_delta_s": 0.14496698672149932,
+      "probability_improvement_conditional": 0.9,
+      "probability_feasible_improvement": 0.9,
+      "mean_monte_carlo_se_s": 0.016901123736209736,
+      "half_full_mean_change_s": 0.005985081023745176
+    }
+  },
+  "Downforce Circuit": {
+    "circuit": "Downforce Circuit",
+    "setup_id": 15,
+    "setup": {
+      "front_wing_deg": 12.477897074057017,
+      "rear_wing_deg": 10.038387574509994,
+      "front_height_m": 0.03837282473039132,
+      "rear_height_m": 0.05509289268426351,
+      "package": "standard"
+    },
+    "baseline": {
+      "lap_time_s": 27.6544028068482,
+      "top_speed_mps": 83.5414756925466,
+      "fuel_used_kg": 1.03,
+      "tyre_wear_end": 0.017804769559527787,
+      "tyre_wear_delta": 0.017804769559527787,
+      "distance_m": 2060.0,
+      "high_speed_corner_mps": 74.22768945145329,
+      "braking_distance_m": 50.0,
+      "mean_downforce_n": 17509.512306653884,
+      "mean_drag_n": 3789.829072426263,
+      "max_tyre_load_n": 12074.583627188651,
+      "solver_iterations": 16,
+      "shift_loss_s": 0.16
+    },
+    "candidate": {
+      "lap_time_s": 26.51736622361082,
+      "top_speed_mps": 92.04696639994566,
+      "fuel_used_kg": 1.03,
+      "tyre_wear_end": 0.01821849304778208,
+      "tyre_wear_delta": 0.01821849304778208,
+      "distance_m": 2060.0,
+      "high_speed_corner_mps": 78.30299835643694,
+      "braking_distance_m": 80.0,
+      "mean_downforce_n": 16934.227449296584,
+      "mean_drag_n": 2832.2114552680086,
+      "max_tyre_load_n": 13044.681376111876,
+      "solver_iterations": 16,
+      "shift_loss_s": 0.16
+    },
+    "lap_delta_s": -1.1370365832373786,
+    "constraints": [],
+    "braking_baseline": {
+      "braking_distance_m": 87.53769455702233,
+      "braking_time_s": 1.6503568381092824
+    },
+    "braking_candidate": {
+      "braking_distance_m": 91.3466264403478,
+      "braking_time_s": 1.7222105734265332
+    },
+    "drs_time_gain_s": 0.2564957828776855,
+    "sector_comparison": [
+      {
+        "sector_id": 31,
+        "sector_time_s_baseline": 8.7945264014114,
+        "sector_time_s_candidate": 7.949805063588277,
+        "delta_s": -0.8447213378231222
+      },
+      {
+        "sector_id": 32,
+        "sector_time_s_baseline": 8.651197291781504,
+        "sector_time_s_candidate": 8.622474694294365,
+        "delta_s": -0.028722597487139012
+      },
+      {
+        "sector_id": 33,
+        "sector_time_s_baseline": 10.208679113655299,
+        "sector_time_s_candidate": 9.945086465728178,
+        "delta_s": -0.2635926479271209
+      }
+    ]
+  }
+}

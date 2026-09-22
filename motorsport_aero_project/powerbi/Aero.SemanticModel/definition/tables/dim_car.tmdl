@@ -1,0 +1,140 @@
+table dim_car
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column car_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: car_name
+
+	column dry_mass_kg
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: dry_mass_kg
+
+	column wheelbase_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: wheelbase_m
+
+	column track_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: track_m
+
+	column cg_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cg_height_m
+
+	column front_weight_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_weight_fraction
+
+	column area_m2
+		dataType: double
+		summarizeBy: none
+		sourceColumn: area_m2
+
+	column power_w
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: power_w
+
+	column efficiency
+		dataType: double
+		summarizeBy: none
+		sourceColumn: efficiency
+
+	column rolling_coefficient
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rolling_coefficient
+
+	column brake_limit_n
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: brake_limit_n
+
+	column brake_bias
+		dataType: double
+		summarizeBy: none
+		sourceColumn: brake_bias
+
+	column wheel_radius_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: wheel_radius_m
+
+	column final_drive
+		dataType: double
+		summarizeBy: none
+		sourceColumn: final_drive
+
+	column max_rpm
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: max_rpm
+
+	column torque_nm
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: torque_nm
+
+	column axle_heave_stiffness_n_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: axle_heave_stiffness_n_m
+
+	column roll_front_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: roll_front_fraction
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition dim_car = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/dim_car.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"car_id", Int64.Type}, {"car_name", type text}, {"dry_mass_kg", Int64.Type}, {"wheelbase_m", type number}, {"track_m", type number}, {"cg_height_m", type number}, {"front_weight_fraction", type number}, {"area_m2", type number}, {"power_w", Int64.Type}, {"efficiency", type number}, {"rolling_coefficient", type number}, {"brake_limit_n", Int64.Type}, {"brake_bias", type number}, {"wheel_radius_m", type number}, {"final_drive", type number}, {"max_rpm", Int64.Type}, {"torque_nm", Int64.Type}, {"axle_heave_stiffness_n_m", Int64.Type}, {"roll_front_fraction", type number}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

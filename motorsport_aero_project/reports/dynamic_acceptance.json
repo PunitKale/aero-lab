@@ -1,0 +1,30 @@
+{
+  "scope": "Dynamic circuit catalogue, setup controls, Python API, shared analysis/replay",
+  "python_tests": {
+    "passed": 34,
+    "command": "python -m pytest tests/test_dynamic_api.py tests/test_realtrack.py -q"
+  },
+  "javascript_tests": {
+    "passed": 14,
+    "command": "node --experimental-loader ./tests/three-loader.mjs --test tests/simulation.test.mjs tests/simulation-geometry.test.mjs tests/realtrack-replay.test.mjs"
+  },
+  "browser_checks": [
+    "Default Silverstone API load",
+    "Draft edits do not change lap values",
+    "Run updates analysis and 3D lap/HUD",
+    "All five circuits selected and replay length/reset verified",
+    "Compare both cars, Play, camera selector, airflow",
+    "Save Setup, Reset Setup, Load saved preset",
+    "Invalid input prevents circuit change and retains correct old selection",
+    "Narrow viewport375px: document width equals scroll width",
+    "No duplicate element IDs",
+    "Dynamic downforce chart rendered",
+    "No JavaScript errors recorded during checked interactions"
+  ],
+  "limitations": [
+    "All performance is an unvalidated rule-based estimate",
+    "Flat geometry ignores elevation and Suzuka overpass height",
+    "Live runs exported as JSON; no automatic MySQL/Power BI persistence",
+    "No FPS benchmark or physical validation"
+  ]
+}

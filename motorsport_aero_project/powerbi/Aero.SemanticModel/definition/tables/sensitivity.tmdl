@@ -1,0 +1,40 @@
+table sensitivity
+	column parameter
+		dataType: string
+		summarizeBy: none
+		sourceColumn: parameter
+
+	column direction
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: direction
+
+	column change
+		dataType: double
+		summarizeBy: none
+		sourceColumn: change
+
+	column delta_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: delta_s
+
+	column status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	partition sensitivity = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/sensitivity.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"parameter", type text}, {"direction", Int64.Type}, {"change", type number}, {"delta_s", type number}, {"status", type text}, {"circuit_id", Int64.Type}}, "en-US")
+			in
+				Typed

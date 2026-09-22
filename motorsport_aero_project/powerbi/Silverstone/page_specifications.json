@@ -1,0 +1,607 @@
+[
+  {
+    "page": "Executive Overview",
+    "visuals": [
+      {
+        "type": "clusteredColumnChart",
+        "title": "Lap time by assumed setup",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_setup"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_setup.name"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Lap Time s"
+                  }
+                },
+                "queryRef": "fact_lap.Lap Time s"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "clusteredBarChart",
+        "title": "Candidate \u2212 baseline by analytical sector",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_sector"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_sector.name"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Sector Delta s"
+                  }
+                },
+                "queryRef": "fact_lap.Sector Delta s"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "page": "Circuit Map & Sectors",
+    "visuals": [
+      {
+        "type": "scatterChart",
+        "title": "Mapped centreline points \u2014 set equal x/y metre scales",
+        "query": {
+          "X": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Map East m"
+                  }
+                },
+                "queryRef": "fact_lap.Map East m"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Map North m"
+                  }
+                },
+                "queryRef": "fact_lap.Map North m"
+              }
+            ]
+          },
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_telemetry"
+                      }
+                    },
+                    "Property": "point_index"
+                  }
+                },
+                "queryRef": "fact_telemetry.point_index"
+              }
+            ]
+          },
+          "Series": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_sector"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_sector.name"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "clusteredColumnChart",
+        "title": "Baseline and candidate sector times",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_sector"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_sector.name"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Baseline Sector s"
+                  }
+                },
+                "queryRef": "fact_lap.Baseline Sector s"
+              },
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Candidate Sector s"
+                  }
+                },
+                "queryRef": "fact_lap.Candidate Sector s"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "page": "Aero Trade-off",
+    "visuals": [
+      {
+        "type": "lineChart",
+        "title": "Downforce by distance \u2014 model-generated",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_telemetry"
+                      }
+                    },
+                    "Property": "distance_m"
+                  }
+                },
+                "queryRef": "fact_telemetry.distance_m"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Average Downforce N"
+                  }
+                },
+                "queryRef": "fact_lap.Average Downforce N"
+              }
+            ]
+          },
+          "Series": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_run"
+                      }
+                    },
+                    "Property": "comparison_role"
+                  }
+                },
+                "queryRef": "dim_run.comparison_role"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "lineChart",
+        "title": "Drag by distance \u2014 model-generated",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_telemetry"
+                      }
+                    },
+                    "Property": "distance_m"
+                  }
+                },
+                "queryRef": "fact_telemetry.distance_m"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Average Drag N"
+                  }
+                },
+                "queryRef": "fact_lap.Average Drag N"
+              }
+            ]
+          },
+          "Series": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_run"
+                      }
+                    },
+                    "Property": "comparison_role"
+                  }
+                },
+                "queryRef": "dim_run.comparison_role"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "page": "Telemetry Analysis",
+    "visuals": [
+      {
+        "type": "lineChart",
+        "title": "Speed profile \u2014 model-generated",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_telemetry"
+                      }
+                    },
+                    "Property": "distance_m"
+                  }
+                },
+                "queryRef": "fact_telemetry.distance_m"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Average Speed kmh"
+                  }
+                },
+                "queryRef": "fact_lap.Average Speed kmh"
+              }
+            ]
+          },
+          "Series": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_run"
+                      }
+                    },
+                    "Property": "comparison_role"
+                  }
+                },
+                "queryRef": "dim_run.comparison_role"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "lineChart",
+        "title": "Acceleration / braking \u2014 model-generated",
+        "query": {
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_telemetry"
+                      }
+                    },
+                    "Property": "distance_m"
+                  }
+                },
+                "queryRef": "fact_telemetry.distance_m"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Average Acceleration mps2"
+                  }
+                },
+                "queryRef": "fact_lap.Average Acceleration mps2"
+              }
+            ]
+          },
+          "Series": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_run"
+                      }
+                    },
+                    "Property": "comparison_role"
+                  }
+                },
+                "queryRef": "dim_run.comparison_role"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "page": "Setup Optimizer",
+    "visuals": [
+      {
+        "type": "tableEx",
+        "title": "Nine alternatives plus baseline \u2014 discrete grid only",
+        "query": {
+          "Values": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_setup"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_setup.name"
+              },
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_setup"
+                      }
+                    },
+                    "Property": "front_wing_deg"
+                  }
+                },
+                "queryRef": "dim_setup.front_wing_deg"
+              },
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_setup"
+                      }
+                    },
+                    "Property": "rear_wing_deg"
+                  }
+                },
+                "queryRef": "dim_setup.rear_wing_deg"
+              },
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Lap Time s"
+                  }
+                },
+                "queryRef": "fact_lap.Lap Time s"
+              },
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Setup Rank"
+                  }
+                },
+                "queryRef": "fact_lap.Setup Rank"
+              },
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Tyre Wear Change pct"
+                  }
+                },
+                "queryRef": "fact_lap.Tyre Wear Change pct"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "scatterChart",
+        "title": "Lap time versus time-weighted drag",
+        "query": {
+          "X": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Average Drag N"
+                  }
+                },
+                "queryRef": "fact_lap.Average Drag N"
+              }
+            ]
+          },
+          "Y": {
+            "projections": [
+              {
+                "field": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_lap"
+                      }
+                    },
+                    "Property": "Lap Time s"
+                  }
+                },
+                "queryRef": "fact_lap.Lap Time s"
+              }
+            ]
+          },
+          "Category": {
+            "projections": [
+              {
+                "field": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_setup"
+                      }
+                    },
+                    "Property": "name"
+                  }
+                },
+                "queryRef": "dim_setup.name"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

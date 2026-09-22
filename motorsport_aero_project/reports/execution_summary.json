@@ -1,0 +1,22 @@
+{
+  "elapsed_seconds": 382.8080885410309,
+  "runs": 133,
+  "rejected_simulations": 0,
+  "uncertainty": {
+    "draws": 200,
+    "valid_draws": 200,
+    "feasible_fraction": 1.0,
+    "mean_delta_s": -0.3779882441510921,
+    "median_delta_s": -0.46581334314359424,
+    "std_delta_s": 0.23901798407093647,
+    "p025_delta_s": -0.656660985145556,
+    "p975_delta_s": 0.08489541625971726,
+    "observed_best_delta_s": -0.6678781822770006,
+    "observed_worst_delta_s": 0.14496698672149932,
+    "probability_improvement_conditional": 0.9,
+    "probability_feasible_improvement": 0.9,
+    "mean_monte_carlo_se_s": 0.016901123736209736,
+    "half_full_mean_change_s": 0.005985081023745176
+  },
+  "search_seeds": 5
+}

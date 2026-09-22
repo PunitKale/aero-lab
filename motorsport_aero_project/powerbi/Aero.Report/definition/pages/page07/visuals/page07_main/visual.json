@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page07_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "optimization_result_id"
+                }
+              },
+              "queryRef": "fact_optimization_result.optimization_result_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "optimization_run_id"
+                }
+              },
+              "queryRef": "fact_optimization_result.optimization_run_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "front_wing_deg"
+                }
+              },
+              "queryRef": "fact_optimization_result.front_wing_deg"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "rear_wing_deg"
+                }
+              },
+              "queryRef": "fact_optimization_result.rear_wing_deg"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "front_height_m"
+                }
+              },
+              "queryRef": "fact_optimization_result.front_height_m"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "rear_height_m"
+                }
+              },
+              "queryRef": "fact_optimization_result.rear_height_m"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_optimization_result"
+                    }
+                  },
+                  "Property": "lap_time_s"
+                }
+              },
+              "queryRef": "fact_optimization_result.lap_time_s"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pareto Analysis \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

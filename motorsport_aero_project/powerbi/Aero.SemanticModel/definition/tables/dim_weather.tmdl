@@ -1,0 +1,95 @@
+table dim_weather
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: name
+
+	column pressure_pa
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: pressure_pa
+
+	column temperature_k
+		dataType: double
+		summarizeBy: none
+		sourceColumn: temperature_k
+
+	column grip
+		dataType: double
+		summarizeBy: none
+		sourceColumn: grip
+
+	column headwind_mps
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: headwind_mps
+
+	column crosswind_mps
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: crosswind_mps
+
+	column aero_multiplier
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: aero_multiplier
+
+	column density_multiplier
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: density_multiplier
+
+	column height_offset_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: height_offset_m
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition dim_weather = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/dim_weather.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"weather_id", Int64.Type}, {"name", type text}, {"pressure_pa", Int64.Type}, {"temperature_k", type number}, {"grip", type number}, {"headwind_mps", Int64.Type}, {"crosswind_mps", Int64.Type}, {"aero_multiplier", Int64.Type}, {"density_multiplier", Int64.Type}, {"height_offset_m", Int64.Type}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

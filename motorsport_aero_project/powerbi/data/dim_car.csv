@@ -1,0 +1,2 @@
+car_id,car_name,dry_mass_kg,wheelbase_m,track_m,cg_height_m,front_weight_fraction,area_m2,power_w,efficiency,rolling_coefficient,brake_limit_n,brake_bias,wheel_radius_m,final_drive,max_rpm,torque_nm,axle_heave_stiffness_n_m,roll_front_fraction,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+1,Synthetic RWD Single-Seater,800,3.6,1.6,0.3,0.45,1.5,450000,0.92,0.015,24000,0.58,0.33,3.4,12000,480,2000000,0.48,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked

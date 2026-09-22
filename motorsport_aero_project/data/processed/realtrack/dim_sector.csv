@@ -1,0 +1,4 @@
+sector_id,circuit_id,sector_number,name,start_distance_m,end_distance_m,is_synthetic,data_source
+1011,101,1,Analytical sector 1,0.0,1965.0,True,Analytical equal-distance thirds; not official timing sectors
+1012,101,2,Analytical sector 2,1965.0,3925.0,True,Analytical equal-distance thirds; not official timing sectors
+1013,101,3,Analytical sector 3,3925.0,5887.32698726564,True,Analytical equal-distance thirds; not official timing sectors

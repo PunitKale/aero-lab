@@ -1,0 +1,324 @@
+relationship f396064e-b320-5789-a793-6e03c07185cc
+	fromColumn: fact_aero_map.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship d8155863-a7ea-5620-b37b-6174e5eb9828
+	fromColumn: fact_drs_event.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship f2554a14-b874-5f44-a0ef-77e846d4edb4
+	fromColumn: fact_drs_event.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship e69980ac-df75-5a9f-b090-e702a44d22d8
+	fromColumn: fact_drs_event.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship a4d70509-0998-517a-8125-03573793a8a4
+	fromColumn: fact_drs_event.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 6a35760a-159b-59ec-8860-86c820e173cc
+	fromColumn: fact_drs_event.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship 5efa201d-dda5-5d27-ad68-898aa4190300
+	fromColumn: fact_drs_event.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship 477d9019-7f58-531e-85ec-57bb5f2140e5
+	fromColumn: fact_drs_event.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship e66eb3d2-066e-522a-9826-fb2c8f513137
+	fromColumn: fact_model_validation.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 1f2c736e-de9b-5895-88f3-3305763d422b
+	fromColumn: fact_model_validation.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship 07d2206a-a216-57c5-9b28-f93f604f8f44
+	fromColumn: fact_model_validation.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship 930b541e-df53-5fb2-8aac-307570b5e180
+	fromColumn: fact_model_validation.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 4d26b5bf-9d9d-5e8f-a1e8-252d8bf6a212
+	fromColumn: fact_model_validation.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship fff40f5c-4339-5adb-9088-9da2663eaee6
+	fromColumn: fact_model_validation.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship 88f5a076-2203-5d5b-b4dd-a9bc0326e3c1
+	fromColumn: fact_model_validation.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship b1023eaf-2f97-5bef-a1e1-c6e0dcf7d9eb
+	fromColumn: fact_optimization_result.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship bcab2b40-bf2e-52ab-b80f-e3ec0329aa95
+	fromColumn: fact_optimization_run.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 5ed208c8-b89d-5f5c-956e-6537b11f1509
+	fromColumn: fact_sector.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 0a66e244-349e-59a0-aa3f-15dd21b31476
+	fromColumn: fact_simulation_lap.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 6cb9008f-e86a-5d80-bcb9-951b7f5726d8
+	fromColumn: fact_simulation_lap.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship 17d96987-ff06-5c59-a1c1-ea320783a5d4
+	fromColumn: fact_simulation_lap.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship 310392e5-473c-5848-a41e-6d0462b279b4
+	fromColumn: fact_simulation_lap.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 49b07a7e-192a-58cb-99d1-72a4d98b4c9e
+	fromColumn: fact_simulation_lap.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship 36946bc2-cf1e-5702-b256-a0bb95736b8a
+	fromColumn: fact_simulation_lap.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship b36f410a-02b3-5720-945a-8cd4a4b1eb39
+	fromColumn: fact_simulation_lap.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship 69c40f93-ecec-5ad1-9cfa-9fe9ffa53345
+	fromColumn: fact_simulation_sector.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship a08aee40-7761-572b-8146-7d11fab40e0b
+	fromColumn: fact_simulation_sector.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship b1aa5879-19b1-5265-a80c-ad14a959f0cd
+	fromColumn: fact_simulation_sector.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship fcb1c8d2-1091-51c5-aea5-a3be4f381774
+	fromColumn: fact_simulation_sector.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 04f0f005-8fb4-53a7-a95e-7e2c959e0301
+	fromColumn: fact_simulation_sector.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship 5959c81e-5200-528a-93b6-fbbcb8491ffd
+	fromColumn: fact_simulation_sector.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship 61edfd1e-1b82-54f4-a471-32f37d9ed55d
+	fromColumn: fact_simulation_sector.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship cd0ecf7f-bdca-5259-a0f9-e98c30322eb1
+	fromColumn: fact_simulation_sector.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 96ebb359-3071-599c-a3bb-903c3daa7fce
+	fromColumn: fact_simulation_segment.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 8aa16ae2-18e0-5867-8cb3-c4d6842cb9b9
+	fromColumn: fact_simulation_segment.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship 9acdc217-c67e-50b7-b7f3-68e050f9fb2d
+	fromColumn: fact_simulation_segment.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship 56f4d7a0-36e1-5bb0-9c95-c474f577c844
+	fromColumn: fact_simulation_segment.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 83ba3c14-eb22-5375-a726-018936ca5b8d
+	fromColumn: fact_simulation_segment.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship e2708b78-9fca-51ed-a350-a7ce9de5f5ee
+	fromColumn: fact_simulation_segment.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship 308a69be-0cab-5783-bc3e-b78b3f94e552
+	fromColumn: fact_simulation_segment.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship ad491577-62b8-50e2-9428-80fc404e5ca6
+	fromColumn: fact_simulation_segment.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 7f7f3ac7-9522-591d-8c79-d71608860574
+	fromColumn: fact_tyre_state.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 4fc87008-78da-52f1-98a7-9bb9b15ff222
+	fromColumn: fact_tyre_state.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship fa80724b-0be8-5da0-a5c6-146892b083d3
+	fromColumn: fact_tyre_state.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship 34b7374a-f166-57e8-983a-4a89ec837bf6
+	fromColumn: fact_tyre_state.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship 57bca8ac-0986-534b-993e-873fd6aca8ac
+	fromColumn: fact_tyre_state.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship ddbaca45-4bcb-55a8-9f18-1953d060b67b
+	fromColumn: fact_tyre_state.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship cca47f02-3295-5da2-a80e-0480402e763a
+	fromColumn: fact_tyre_state.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship eb9d62aa-5087-5c2b-9e8b-cd233b335422
+	fromColumn: fact_vehicle_state.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 794ca4f6-9396-5324-9ea5-f091b0e1f856
+	fromColumn: fact_vehicle_state.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship 0cedf3b8-8e7c-555d-bb11-c186835597c7
+	fromColumn: fact_vehicle_state.weather_id
+	toColumn: dim_weather.weather_id
+	crossFilteringBehavior: oneDirection
+
+relationship 021c5799-67bc-58c6-a892-642f412104fd
+	fromColumn: fact_vehicle_state.tyre_id
+	toColumn: dim_tyre.tyre_id
+	crossFilteringBehavior: oneDirection
+
+relationship ed2492a8-69ab-573b-811d-ebc07b0a2ff5
+	fromColumn: fact_vehicle_state.session_id
+	toColumn: dim_session.session_id
+	crossFilteringBehavior: oneDirection
+
+relationship c22a277e-7fbd-52da-8a34-3ceebd844e55
+	fromColumn: fact_vehicle_state.car_id
+	toColumn: dim_car.car_id
+	crossFilteringBehavior: oneDirection
+
+relationship 2a9d4c1f-b4e0-55b9-8e43-15b8383e9d69
+	fromColumn: fact_vehicle_state.date_id
+	toColumn: dim_date.date_id
+	crossFilteringBehavior: oneDirection
+
+relationship 8c4bddfb-e339-5d99-aa1b-fb6ebea20778
+	fromColumn: fact_vehicle_state.sector_id
+	toColumn: dim_sector.sector_id
+	crossFilteringBehavior: oneDirection
+
+relationship 38bed429-4f86-56de-a9cc-21b362db0033
+	fromColumn: recommendations.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 09cc7cb1-e7db-5825-aa49-33ee71434c84
+	fromColumn: recommendations.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship a5ca8676-1a49-50b8-af02-5c5941ca27bc
+	fromColumn: uncertainty.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship eec98326-9e68-5ed2-9161-5ea973f72715
+	fromColumn: sensitivity.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 1e4ab9b9-5d61-55be-9fd0-ae986ae8ca62
+	fromColumn: interventions.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 8aab3d84-b4e7-5196-a2c8-606cefa0787b
+	fromColumn: interventions.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection
+
+relationship 174f9c4b-a21b-5649-ab58-7825ad8f2c81
+	fromColumn: robust_selection.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship f21c73fe-f4b1-57fe-b79f-c266c2d603c4
+	fromColumn: drs_comparison.circuit_id
+	toColumn: dim_circuit.circuit_id
+	crossFilteringBehavior: oneDirection
+
+relationship 5ca57527-1c83-5e56-a0ce-cdd6b57d9b25
+	fromColumn: drs_comparison.setup_id
+	toColumn: dim_setup.setup_id
+	crossFilteringBehavior: oneDirection

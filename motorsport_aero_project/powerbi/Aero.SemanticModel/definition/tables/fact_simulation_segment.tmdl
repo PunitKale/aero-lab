@@ -1,0 +1,85 @@
+table fact_simulation_segment
+	column simulation_segment_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: simulation_segment_id
+
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column segment_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: segment_id
+
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column segment_time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: segment_time_s
+
+	column top_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_mps
+
+	column length_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: length_m
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	partition fact_simulation_segment = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_simulation_segment.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"simulation_segment_id", Int64.Type}, {"run_id", Int64.Type}, {"segment_id", Int64.Type}, {"sector_id", Int64.Type}, {"segment_time_s", type number}, {"top_speed_mps", type number}, {"length_m", Int64.Type}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"tyre_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}}, "en-US")
+			in
+				Typed

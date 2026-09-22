@@ -1,0 +1,155 @@
+table fact_telemetry
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column track_point_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: track_point_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column sample_index
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sample_index
+
+	column time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: time_s
+
+	column dt_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: dt_s
+
+	column speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: speed_mps
+
+	column exit_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: exit_speed_mps
+
+	column acceleration_mps2
+		dataType: double
+		summarizeBy: none
+		sourceColumn: acceleration_mps2
+
+	column downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: downforce_n
+
+	column front_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_downforce_n
+
+	column rear_downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_downforce_n
+
+	column drag_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drag_n
+
+	column tyre_wear
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear
+
+	column tyre_wear_end
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_end
+
+	column is_synthetic
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+	column data_source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source
+
+	column point_index
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: point_index
+
+	column distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: distance_m
+
+	column step_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: step_m
+
+	column x_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: x_m
+
+	column y_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: y_m
+
+	column heading_rad
+		dataType: double
+		summarizeBy: none
+		sourceColumn: heading_rad
+
+	column curvature_1pm
+		dataType: double
+		summarizeBy: none
+		sourceColumn: curvature_1pm
+
+	column classification
+		dataType: string
+		summarizeBy: none
+		sourceColumn: classification
+
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column is_derived
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_derived
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column speed_kmh
+		dataType: double
+		summarizeBy: none
+		sourceColumn: speed_kmh
+
+	partition fact_telemetry = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="fact_telemetry"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"run_id", Int64.Type}, {"track_point_id", Int64.Type}, {"circuit_id", Int64.Type}, {"sample_index", Int64.Type}, {"time_s", type number}, {"dt_s", type number}, {"speed_mps", type number}, {"exit_speed_mps", type number}, {"acceleration_mps2", type number}, {"downforce_n", type number}, {"front_downforce_n", type number}, {"rear_downforce_n", type number}, {"drag_n", type number}, {"tyre_wear", type number}, {"tyre_wear_end", type number}, {"is_synthetic", type logical}, {"data_source", type text}, {"point_index", Int64.Type}, {"distance_m", type number}, {"step_m", type number}, {"x_m", type number}, {"y_m", type number}, {"heading_rad", type number}, {"curvature_1pm", type number}, {"classification", type text}, {"sector_id", Int64.Type}, {"is_derived", type logical}, {"setup_id", Int64.Type}, {"speed_kmh", type number}}, "en-US")
+			in
+			    Typed

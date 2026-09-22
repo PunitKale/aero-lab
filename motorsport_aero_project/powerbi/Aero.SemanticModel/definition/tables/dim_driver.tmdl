@@ -1,0 +1,60 @@
+table dim_driver
+	column driver_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: driver_id
+
+	column driver_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: driver_name
+
+	column consistency_sigma_s
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: consistency_sigma_s
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition dim_driver = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/dim_driver.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"driver_id", Int64.Type}, {"driver_name", type text}, {"consistency_sigma_s", Int64.Type}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

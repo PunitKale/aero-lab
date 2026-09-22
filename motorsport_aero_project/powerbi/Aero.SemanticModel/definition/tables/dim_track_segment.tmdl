@@ -1,0 +1,115 @@
+table dim_track_segment
+	column segment_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: segment_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column segment_order
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: segment_order
+
+	column kind
+		dataType: string
+		summarizeBy: none
+		sourceColumn: kind
+
+	column length_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: length_m
+
+	column radius_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: radius_m
+
+	column banking_rad
+		dataType: double
+		summarizeBy: none
+		sourceColumn: banking_rad
+
+	column grade_rad
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: grade_rad
+
+	column surface_grip
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: surface_grip
+
+	column width_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: width_m
+
+	column drs_zone
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: drs_zone
+
+	column drs_start_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drs_start_fraction
+
+	column drs_end_fraction
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drs_end_fraction
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition dim_track_segment = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/dim_track_segment.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"segment_id", Int64.Type}, {"circuit_id", Int64.Type}, {"sector_id", Int64.Type}, {"segment_order", Int64.Type}, {"kind", type text}, {"length_m", Int64.Type}, {"radius_m", Int64.Type}, {"banking_rad", type number}, {"grade_rad", Int64.Type}, {"surface_grip", Int64.Type}, {"width_m", Int64.Type}, {"drs_zone", Int64.Type}, {"drs_start_fraction", type number}, {"drs_end_fraction", type number}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

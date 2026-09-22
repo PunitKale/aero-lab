@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page04_v0",
+  "position": {
+    "x": 16,
+    "y": 235,
+    "z": 0,
+    "height": 530,
+    "width": 696,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_telemetry"
+                    }
+                  },
+                  "Property": "distance_m"
+                }
+              },
+              "queryRef": "fact_telemetry.distance_m"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Average Speed kmh"
+                }
+              },
+              "queryRef": "fact_lap.Average Speed kmh"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_run"
+                    }
+                  },
+                  "Property": "comparison_role"
+                }
+              },
+              "queryRef": "dim_run.comparison_role"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Speed profile \u2014 model-generated'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

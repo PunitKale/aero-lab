@@ -1,0 +1,9 @@
+parameter,direction,change,delta_s,status
+front_wing_deg,-1,-0.75,0.049061995741595865,simulated
+front_wing_deg,1,0.75,0.03768735092711495,simulated
+rear_wing_deg,-1,-1.0,0.06838638924867269,simulated
+rear_wing_deg,1,1.0,0.04512300537080449,simulated
+front_height_m,-1,-0.0015000000000000013,0.04825391016201053,simulated
+front_height_m,1,0.0015000000000000013,-0.028087859784406533,simulated
+rear_height_m,-1,-0.002250000000000002,0.012236074573046096,simulated
+rear_height_m,1,0.002250000000000002,-0.003569118598768739,simulated

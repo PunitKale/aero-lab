@@ -1,0 +1,13 @@
+risk_id,risk,likelihood,impact,mitigation,trigger,owner
+R01,Synthetic agreement presented as real-world accuracy,High,High,Separate analytical synthetic and measured evidence,Any unsupported accuracy statement,Project author
+R02,Optimizer exploits unrealistic aero or tyre surfaces,High,High,Map bounds sensitivity review and finalist re-evaluation,Optimum at invalid state or discontinuity,Model developer
+R03,Unit or sign inconsistency,Medium,High,SI contracts positive-downforce convention and dimensional tests,Cross-tool reconciliation failure,Data engineer
+R04,Discontinuous speed or double-counted braking distance,Medium,High,Continuous boundary states and forward backward feasibility,Impossible corner entry or distance mismatch,Simulation developer
+R05,MySQL or Power BI runtime unavailable,Medium,High,Check access during architecture phase and record deployment blockers,No executable integration by W3,Project author
+R06,Excel cached values mistaken for formula verification,Medium,High,Recalculate in spreadsheet engine and inspect formulas,No recalculation evidence,BI developer
+R07,Search and uncertainty exceed compute budget,High,Medium,Benchmark cache deterministic runs and screen finalists,Runtime exceeds stated budget,Optimization developer
+R08,Scope exceeds available student hours,High,High,Use weekly gates and explicit MVP versus full scope,Two missed milestone gates,Project supervisor
+R09,DRS policy conflated with current championship rules,Medium,High,Generic versioned policy and separate regulatory review,Unversioned legality claim,Research author
+R10,Inconsistent aggregation or many-to-many joins,Medium,High,Explicit grains and filter-context reconciliation,Duplicate rows or mismatched totals,Data engineer
+R11,No independent telemetry available,High,Medium,Report verification only and retain conditional validation plan,No licensed matched dataset by W10,Research author
+R12,Data loss or credential exposure,Low,High,Environment secrets versioned backup and restore rehearsal,Failed restore or secret committed,Project author

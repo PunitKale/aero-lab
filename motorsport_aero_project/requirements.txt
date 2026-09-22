@@ -1,0 +1,16 @@
+numpy>=2.0
+pandas>=2.2
+scipy>=1.14
+scikit-learn>=1.5
+matplotlib>=3.9
+seaborn>=0.13
+plotly>=5.24
+SQLAlchemy>=2.0
+PyMySQL>=1.1
+cryptography>=43
+python-dotenv>=1.0
+pytest>=8
+openpyxl>=3.1
+XlsxWriter>=3.2
+PyYAML>=6
+nbformat>=5.10

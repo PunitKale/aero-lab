@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-17",
+  "dataset_id": "197ccb7fc1578619449a8faec63e1b288760c05340a8cdf57202b7eb0d7795d2",
+  "python_invariant_tests": {"passed": 5, "failed": 0},
+  "javascript_tests": {"passed": 14, "failed": 0, "scope": "12 legacy/geometry regression checks plus 2 real-coordinate replay checks"},
+  "mysql_pipeline_checks": {"passed": 17, "failed": 0},
+  "mysql_view_column_sets": {"passed": 7, "failed": 0},
+  "mysql_analysis_queries": {"executed": 5, "lap_reconciliation_mismatches": 0},
+  "powerbi_report_json_schemas": {"checked": 66, "errors": 0},
+  "browser": {
+    "checked": ["Analysis baseline/candidate values", "Downforce chart rendering and metric switching", "Three.js scene rendering", "Play, pause, reset", "Playback multiplier", "Baseline/candidate selection", "Two-car comparison", "Camera selector modes", "Airflow toggle", "Real geometry attribution and sensitivity warning", "390 px viewport and no horizontal overflow", "No duplicate DOM IDs", "No recorded JavaScript errors during final checks"],
+    "full_lap_wrap": "Verified by numerical replay tests; not timed as a full browser lap",
+    "gpu_frame_rate_benchmark": "not executed"
+  },
+  "powerbi_desktop_authentication_refresh_dax_rendering": "not executed; follow powerbi/Silverstone/README.md",
+  "measured_vehicle_validation": "not available; all performance is model-generated",
+  "mesh_sensitivity": {"delta_at_5m_s": -0.03638188323503755, "delta_at_2_5m_s": 0.03484889668183655, "conclusion": "Sign reversal. No robust setup gain is claimed."}
+}

@@ -1,0 +1,65 @@
+table recommendations
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column baseline_lap_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: baseline_lap_s
+
+	column candidate_lap_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: candidate_lap_s
+
+	column lap_delta_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_delta_s
+
+	column drs_gain_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drs_gain_s
+
+	column top_speed_gain_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: top_speed_gain_mps
+
+	column corner_speed_gain_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: corner_speed_gain_mps
+
+	column braking_distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: braking_distance_m
+
+	column tyre_wear_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_delta
+
+	column feasible
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: feasible
+
+	partition recommendations = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/recommendations.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"baseline_lap_s", type number}, {"candidate_lap_s", type number}, {"lap_delta_s", type number}, {"drs_gain_s", type number}, {"top_speed_gain_mps", type number}, {"corner_speed_gain_mps", type number}, {"braking_distance_m", type number}, {"tyre_wear_delta", type number}, {"feasible", Int64.Type}}, "en-US")
+			in
+				Typed

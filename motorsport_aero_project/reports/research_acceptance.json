@@ -1,0 +1,25 @@
+{
+  "python_tests": 31,
+  "csv_verified": [
+    "lap 2 rows",
+    "sector 6 rows",
+    "telemetry 2356 rows",
+    "metadata and quoting",
+    "parsed telemetry lap sums"
+  ],
+  "browser_verified": [
+    "identical setup tie",
+    "changed rear-wing insight",
+    "warnings",
+    "CSV actions",
+    "comparison charts rendered",
+    "3D play/reset, cockpit camera and two-car comparison",
+    "no console errors",
+    "no page horizontal overflow at 1265px"
+  ],
+  "limitations": [
+    "unvalidated model; no measured accuracy interval",
+    "heuristic preset recommendations",
+    "no FPS benchmark"
+  ]
+}

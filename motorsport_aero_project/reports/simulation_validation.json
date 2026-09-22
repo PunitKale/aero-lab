@@ -1,0 +1,10 @@
+{
+  "surface": "Aero Lab 3D simulation layer",
+  "date": "2026-09-17",
+  "automated_tests": {"total": 12, "passed": 12, "failed": 0},
+  "coverage": ["All six saved telemetry traces", "Exact lap durations and cell boundaries", "Sector and force source binding", "Requested Downforce Circuit values", "Lap wrap and shared-clock candidate lead", "Invalid trace and clock rejection", "Closed non-self-intersecting spline centerlines", "Finite procedural geometry and valid indices", "Car setup and force update", "Existing analytics elements and Plotly binding retained"],
+  "local_http": "Dashboard and module entry points returned HTTP 200 with appropriate MIME types",
+  "browser_interaction_and_visual_acceptance": "not executed",
+  "gpu_performance_benchmark": "not executed",
+  "model_limitations": "Original illustrative spline layouts are not the source solver curvature map. Force overlays and particles are synthetic educational visuals, not CFD."
+}

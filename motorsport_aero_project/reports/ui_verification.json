@@ -1,0 +1,15 @@
+{
+  "surface": "local supplementary dashboard",
+  "url": "http://127.0.0.1:8765/reports/dashboard.html",
+  "checked": [
+    "Velocity Park initial values",
+    "Apex Ring selector updates KPIs and sector times",
+    "Downforce chart switches units and data",
+    "Speed chart restored",
+    "Desktop-width screenshot inspected"
+  ],
+  "result": "passed",
+  "power_bi_visual_rendering": "not executed",
+  "scope": "Prior analysis-layer checks; not browser acceptance of the new 3D layer.",
+  "simulation_evidence": "simulation_validation.json"
+}

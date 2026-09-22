@@ -1,0 +1,128 @@
+[
+  {
+    "page": "Project Overview",
+    "table": "dim_circuit",
+    "category": "circuit_name",
+    "measure": "Simulated Lap Time",
+    "visual": "clusteredColumnChart"
+  },
+  {
+    "page": "Setup Recommendation",
+    "table": "dim_circuit",
+    "category": "circuit_name",
+    "measure": "Lap-Time Delta",
+    "visual": "clusteredBarChart"
+  },
+  {
+    "page": "Aero Performance",
+    "table": "fact_vehicle_state",
+    "category": "speed_mps",
+    "measure": "Average Downforce",
+    "visual": "lineChart"
+  },
+  {
+    "page": "Sector and Lap Analysis",
+    "table": "dim_sector",
+    "category": "sector_name",
+    "measure": "Simulated Sector Time",
+    "visual": "clusteredColumnChart"
+  },
+  {
+    "page": "DRS Analysis",
+    "table": "dim_setup",
+    "category": "setup_name",
+    "measure": "DRS Time Gain",
+    "visual": "clusteredBarChart"
+  },
+  {
+    "page": "Setup Optimization",
+    "table": "fact_optimization_result",
+    "category": "method",
+    "measure": "Constraint Violation Count",
+    "visual": "clusteredColumnChart"
+  },
+  {
+    "page": "Pareto Analysis",
+    "table": "fact_optimization_result",
+    "category": "optimization_result_id",
+    "measure": "Optimization Rank",
+    "visual": "tableEx"
+  },
+  {
+    "page": "Sensitivity and Uncertainty",
+    "table": "sensitivity",
+    "category": "parameter",
+    "measure": null,
+    "visual": "tableEx"
+  },
+  {
+    "page": "Model Validation",
+    "table": "fact_model_validation",
+    "category": "test_name",
+    "measure": "Validated Run Count",
+    "visual": "clusteredBarChart"
+  },
+  {
+    "page": "Data Quality",
+    "table": "data_quality",
+    "category": "table_name",
+    "measure": null,
+    "visual": "tableEx"
+  },
+  {
+    "page": "Digital Car Overview",
+    "table": "dim_circuit",
+    "category": "circuit_name",
+    "measure": "Simulated Top Speed",
+    "visual": "clusteredColumnChart"
+  },
+  {
+    "page": "Speed and Acceleration",
+    "table": "fact_vehicle_state",
+    "category": "distance_m",
+    "measure": "Top Speed",
+    "visual": "lineChart"
+  },
+  {
+    "page": "Force Breakdown",
+    "table": "fact_vehicle_state",
+    "category": "distance_m",
+    "measure": "Average Drag",
+    "visual": "lineChart"
+  },
+  {
+    "page": "Cornering Performance",
+    "table": "dim_circuit",
+    "category": "circuit_name",
+    "measure": "Average Corner Speed",
+    "visual": "clusteredColumnChart"
+  },
+  {
+    "page": "Tyre and Fuel Evolution",
+    "table": "fact_tyre_state",
+    "category": "distance_m",
+    "measure": null,
+    "visual": "tableEx"
+  },
+  {
+    "page": "DRS Simulation",
+    "table": "dim_setup",
+    "category": "setup_name",
+    "measure": "DRS Speed Gain",
+    "visual": "clusteredBarChart"
+  },
+  {
+    "page": "Setup Simulation Comparison",
+    "table": "dim_setup",
+    "category": "setup_name",
+    "measure": "Simulated Lap Time",
+    "visual": "clusteredBarChart"
+  },
+  {
+    "page": "Simulation Validation",
+    "table": "fact_model_validation",
+    "category": "test_name",
+    "measure": "Validated Run Count",
+    "visual": "clusteredBarChart"
+  }
+]

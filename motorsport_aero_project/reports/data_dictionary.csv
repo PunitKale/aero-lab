@@ -1,0 +1,346 @@
+table,column,mysql_type,unit,primary_key,foreign_table,nullable,example
+dim_car,car_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_car,car_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Synthetic RWD Single-Seater
+dim_car,dry_mass_kg,BIGINT,kg,False,,True,800
+dim_car,wheelbase_m,DOUBLE,m,False,,True,3.6
+dim_car,track_m,DOUBLE,m,False,,True,1.6
+dim_car,cg_height_m,DOUBLE,m,False,,True,0.3
+dim_car,front_weight_fraction,DOUBLE,dimensionless / identifier / text,False,,True,0.45
+dim_car,area_m2,DOUBLE,dimensionless / identifier / text,False,,True,1.5
+dim_car,power_w,BIGINT,W,False,,True,450000
+dim_car,efficiency,DOUBLE,dimensionless / identifier / text,False,,True,0.92
+dim_car,rolling_coefficient,DOUBLE,dimensionless / identifier / text,False,,True,0.015
+dim_car,brake_limit_n,BIGINT,N,False,,True,24000
+dim_car,brake_bias,DOUBLE,dimensionless / identifier / text,False,,True,0.58
+dim_car,wheel_radius_m,DOUBLE,m,False,,True,0.33
+dim_car,final_drive,DOUBLE,dimensionless / identifier / text,False,,True,3.4
+dim_car,max_rpm,BIGINT,dimensionless / identifier / text,False,,True,12000
+dim_car,torque_nm,BIGINT,dimensionless / identifier / text,False,,True,480
+dim_car,axle_heave_stiffness_n_m,BIGINT,m,False,,True,2000000
+dim_car,roll_front_fraction,DOUBLE,dimensionless / identifier / text,False,,True,0.48
+dim_car,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_car,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_car,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_car,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_car,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_car,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_car,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_circuit,circuit_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_circuit,circuit_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Velocity Park
+dim_circuit,length_m,BIGINT,m,False,,True,2940
+dim_circuit,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_circuit,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_circuit,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_circuit,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_circuit,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_circuit,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_circuit,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_setup,setup_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_setup,setup_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Baseline
+dim_setup,front_wing_deg,DOUBLE,deg,False,,True,17.5
+dim_setup,rear_wing_deg,DOUBLE,deg,False,,True,20.0
+dim_setup,front_height_m,DOUBLE,m,False,,True,0.04
+dim_setup,rear_height_m,DOUBLE,m,False,,True,0.06
+dim_setup,package,VARCHAR(500),dimensionless / identifier / text,False,,True,standard
+dim_setup,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_setup,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_setup,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_setup,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_setup,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_setup,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_setup,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_weather,weather_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_weather,name,VARCHAR(500),dimensionless / identifier / text,False,,True,Dry
+dim_weather,pressure_pa,DOUBLE,Pa,False,,True,101325.0
+dim_weather,temperature_k,DOUBLE,K,False,,True,288.15
+dim_weather,grip,DOUBLE,dimensionless / identifier / text,False,,True,1.0
+dim_weather,headwind_mps,DOUBLE,m/s,False,,True,0.0
+dim_weather,crosswind_mps,DOUBLE,m/s,False,,True,0.0
+dim_weather,aero_multiplier,DOUBLE,dimensionless / identifier / text,False,,True,1.0
+dim_weather,density_multiplier,DOUBLE,dimensionless / identifier / text,False,,True,1.0
+dim_weather,height_offset_m,DOUBLE,m,False,,True,0.0
+dim_weather,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_weather,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_weather,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_weather,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_weather,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_weather,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_weather,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_tyre,tyre_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_tyre,name,VARCHAR(500),dimensionless / identifier / text,False,,True,Soft
+dim_tyre,mu,DOUBLE,dimensionless / identifier / text,False,,True,1.68
+dim_tyre,wear_per_m,DOUBLE,m,False,,True,3e-06
+dim_tyre,optimal_temp_c,DOUBLE,°C,False,,True,90.0
+dim_tyre,load_exponent,DOUBLE,dimensionless / identifier / text,False,,True,0.09
+dim_tyre,reference_load_n,DOUBLE,N,False,,True,2500.0
+dim_tyre,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_tyre,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_tyre,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_tyre,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_tyre,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_tyre,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_tyre,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_driver,driver_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_driver,driver_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Deterministic idealized driver
+dim_driver,consistency_sigma_s,DOUBLE,s,False,,True,0.0
+dim_driver,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_driver,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_driver,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_driver,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_driver,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_driver,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_driver,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_date,date_id,BIGINT,dimensionless / identifier / text,True,,False,20260917
+dim_date,date_iso,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-17
+dim_date,year,BIGINT,dimensionless / identifier / text,False,,True,2026
+dim_date,month,BIGINT,dimensionless / identifier / text,False,,True,9
+dim_date,day,BIGINT,dimensionless / identifier / text,False,,True,17
+dim_date,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_date,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_date,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_date,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_date,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_date,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_date,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_session,session_id,BIGINT,dimensionless / identifier / text,True,,False,1
+dim_session,session_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Qualifying
+dim_session,date_id,BIGINT,dimensionless / identifier / text,False,dim_date,False,20260917
+dim_session,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_session,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_session,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_session,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_session,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_session,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_session,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_sector,sector_id,BIGINT,dimensionless / identifier / text,True,,False,11
+dim_sector,circuit_id,BIGINT,dimensionless / identifier / text,False,dim_circuit,False,1
+dim_sector,sector_name,VARCHAR(500),dimensionless / identifier / text,False,,True,Sector 1
+dim_sector,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_sector,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_sector,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_sector,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_sector,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_sector,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_sector,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+dim_corner,corner_id,BIGINT,dimensionless / identifier / text,True,,False,102
+dim_corner,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,11
+dim_corner,radius_m,BIGINT,m,False,,True,75
+dim_corner,banking_rad,DOUBLE,rad,False,,True,0.02
+dim_corner,width_m,DOUBLE,m,False,,True,12.0
+dim_corner,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_corner,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_corner,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_corner,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_corner,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_corner,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_corner,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+fact_aero_map,aero_map_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_aero_map,setup_id,BIGINT,dimensionless / identifier / text,False,dim_setup,False,1
+fact_aero_map,speed_mps,BIGINT,m/s,False,,True,0
+fact_aero_map,front_height_m,DOUBLE,m,False,,True,0.025
+fact_aero_map,rear_height_m,DOUBLE,m,False,,True,0.04
+fact_aero_map,yaw_deg,BIGINT,deg,False,,True,-5
+fact_aero_map,drs,BIGINT,dimensionless / identifier / text,False,,True,0
+fact_aero_map,cl_front,DOUBLE,dimensionless / identifier / text,False,,True,1.394099792290112
+fact_aero_map,cl_rear,DOUBLE,dimensionless / identifier / text,False,,True,1.8503784462763087
+fact_aero_map,cd,DOUBLE,dimensionless / identifier / text,False,,True,0.7627907258105779
+fact_aero_map,downforce_n,DOUBLE,N,False,,True,0.0
+fact_aero_map,drag_n,DOUBLE,N,False,,True,0.0
+fact_aero_map,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+fact_aero_map,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_aero_map,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_aero_map,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_aero_map,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+fact_aero_map,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+fact_aero_map,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+run_registry,run_id,BIGINT,dimensionless / identifier / text,True,,False,1
+run_registry,circuit_id,BIGINT,dimensionless / identifier / text,False,dim_circuit,False,1
+run_registry,setup_id,BIGINT,dimensionless / identifier / text,False,dim_setup,False,1
+run_registry,weather_id,BIGINT,dimensionless / identifier / text,False,dim_weather,False,1
+run_registry,tyre_id,BIGINT,dimensionless / identifier / text,False,dim_tyre,False,2
+run_registry,session_id,BIGINT,dimensionless / identifier / text,False,dim_session,False,1
+run_registry,car_id,BIGINT,dimensionless / identifier / text,False,dim_car,False,1
+run_registry,driver_id,BIGINT,dimensionless / identifier / text,False,dim_driver,False,1
+run_registry,date_id,BIGINT,dimensionless / identifier / text,False,dim_date,False,20260917
+run_registry,comparison_group,VARCHAR(500),dimensionless / identifier / text,False,,True,setup_sweep
+run_registry,drs_available,BIGINT,dimensionless / identifier / text,False,,True,1
+run_registry,pair_id,BIGINT,dimensionless / identifier / text,False,,False,0
+run_registry,lap_number,BIGINT,dimensionless / identifier / text,False,,True,1
+run_registry,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,simulated
+run_registry,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+run_registry,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+run_registry,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+run_registry,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.955027+00:00
+run_registry,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+run_registry,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+fact_simulation_lap,simulation_lap_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_simulation_lap,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_simulation_lap,lap_time_s,DOUBLE,s,False,,True,49.59752264064856
+fact_simulation_lap,top_speed_mps,DOUBLE,m/s,False,,True,83.89733951158058
+fact_simulation_lap,fuel_used_kg,DOUBLE,kg,False,,True,1.47
+fact_simulation_lap,tyre_wear_end,DOUBLE,dimensionless / identifier / text,False,,True,0.019984366063126636
+fact_simulation_lap,tyre_wear_delta,DOUBLE,dimensionless / identifier / text,False,,True,0.019984366063126636
+fact_simulation_lap,distance_m,DOUBLE,m,False,,True,2940.0
+fact_simulation_lap,high_speed_corner_mps,DOUBLE,m/s,False,,True,57.684375213459134
+fact_simulation_lap,braking_distance_m,DOUBLE,m,False,,True,220.0
+fact_simulation_lap,mean_downforce_n,DOUBLE,N,False,,True,11727.40335657738
+fact_simulation_lap,mean_drag_n,DOUBLE,N,False,,True,2519.236163393961
+fact_simulation_lap,max_tyre_load_n,DOUBLE,N,False,,True,8611.880291240106
+fact_simulation_lap,solver_iterations,BIGINT,dimensionless / identifier / text,False,,True,18
+fact_simulation_lap,shift_loss_s,DOUBLE,s,False,,True,0.56
+fact_simulation_lap,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,simulated
+fact_simulation_lap,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_simulation_lap,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_simulation_lap,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_simulation_lap,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.955027+00:00
+fact_simulation_lap,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+fact_simulation_lap,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+fact_simulation_sector,simulation_sector_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_simulation_sector,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_simulation_sector,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,11
+fact_simulation_sector,sector_time_s,DOUBLE,s,False,,True,18.626936943497043
+fact_drs_event,drs_event_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_drs_event,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_drs_event,start_time_s,DOUBLE,s,False,,True,2.559242673552086
+fact_drs_event,end_time_s,DOUBLE,s,False,,True,11.530162959683814
+fact_drs_event,start_distance_m,DOUBLE,m,False,,True,160.0
+fact_drs_event,end_distance_m,DOUBLE,m,False,,True,860.0
+fact_drs_event,entry_speed_mps,DOUBLE,m/s,False,,True,68.33374602105702
+fact_drs_event,exit_speed_mps,DOUBLE,m/s,False,,True,83.89733951158058
+fact_tyre_state,tyre_state_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_tyre_state,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_tyre_state,tyre_id,BIGINT,dimensionless / identifier / text,False,dim_tyre,False,2
+fact_tyre_state,sample_index,BIGINT,dimensionless / identifier / text,False,,True,0
+fact_tyre_state,distance_m,DOUBLE,m,False,,True,0.0
+fact_tyre_state,tyre_wear,DOUBLE,dimensionless / identifier / text,False,,True,0.0
+fact_tyre_state,tyre_temperature_c,DOUBLE,°C,False,,True,85.0
+fact_tyre_state,tyre_mu,DOUBLE,dimensionless / identifier / text,False,,True,1.5031394358097223
+fact_tyre_state,fuel_kg,DOUBLE,kg,False,,True,10.0
+fact_simulation_warning,warning_id,BIGINT,dimensionless / identifier / text,True,,False,No measured records available
+fact_simulation_warning,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,No measured records available
+fact_simulation_warning,warning_code,VARCHAR(500),dimensionless / identifier / text,False,,True,No measured records available
+fact_simulation_warning,severity,VARCHAR(500),dimensionless / identifier / text,False,,True,No measured records available
+fact_optimization_run,optimization_run_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_optimization_run,circuit_id,BIGINT,dimensionless / identifier / text,False,dim_circuit,False,1
+fact_optimization_run,objective,VARCHAR(500),dimensionless / identifier / text,False,,True,qualifying
+fact_optimization_run,seed,BIGINT,dimensionless / identifier / text,False,,True,42
+fact_optimization_run,evaluation_count,BIGINT,dimensionless / identifier / text,False,,True,95
+fact_optimization_run,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,simulated
+fact_optimization_run,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_optimization_run,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_optimization_run,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+fact_optimization_run,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.955027+00:00
+fact_optimization_run,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+fact_optimization_run,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+fact_optimization_result,optimization_result_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_optimization_result,optimization_run_id,BIGINT,dimensionless / identifier / text,False,fact_optimization_run,False,1
+fact_optimization_result,front_wing_deg,DOUBLE,deg,False,,True,16.532279633393614
+fact_optimization_result,rear_wing_deg,DOUBLE,deg,False,,True,15.180591949593744
+fact_optimization_result,front_height_m,DOUBLE,m,False,,True,0.0351689561244392
+fact_optimization_result,rear_height_m,DOUBLE,m,False,,True,0.06072621129700724
+fact_optimization_result,package,VARCHAR(500),dimensionless / identifier / text,False,,True,standard
+fact_optimization_result,method,VARCHAR(500),dimensionless / identifier / text,False,,True,local
+fact_optimization_result,objective,VARCHAR(500),dimensionless / identifier / text,False,,True,qualifying
+fact_optimization_result,lap_time_s,DOUBLE,s,False,,True,49.067067571816196
+fact_optimization_result,top_speed_mps,DOUBLE,m/s,False,,True,87.09689314660937
+fact_optimization_result,fuel_used_kg,DOUBLE,kg,False,,True,1.47
+fact_optimization_result,tyre_wear_end,DOUBLE,dimensionless / identifier / text,False,,True,0.020131890478698632
+fact_optimization_result,tyre_wear_delta,DOUBLE,dimensionless / identifier / text,False,,True,0.020131890478698632
+fact_optimization_result,distance_m,DOUBLE,m,False,,True,2940.0
+fact_optimization_result,high_speed_corner_mps,DOUBLE,m/s,False,,True,57.286765454337
+fact_optimization_result,braking_distance_m,DOUBLE,m,False,,True,250.0
+fact_optimization_result,mean_downforce_n,DOUBLE,N,False,,True,11570.76482035809
+fact_optimization_result,mean_drag_n,DOUBLE,N,False,,True,2204.082032909108
+fact_optimization_result,max_tyre_load_n,DOUBLE,N,False,,True,8596.610862050537
+fact_optimization_result,solver_iterations,BIGINT,dimensionless / identifier / text,False,,True,17
+fact_optimization_result,shift_loss_s,DOUBLE,s,False,,True,0.64
+fact_optimization_result,feasible,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_optimization_result,constraint_reasons,VARCHAR(500),dimensionless / identifier / text,False,,True,
+fact_optimization_result,objective_value,DOUBLE,dimensionless / identifier / text,False,,True,49.067067571816196
+fact_optimization_result,pareto,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_model_validation,validation_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_model_validation,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_model_validation,test_name,VARCHAR(500),dimensionless / identifier / text,False,,True,positive_time
+fact_model_validation,passed,BOOLEAN,dimensionless / identifier / text,False,,True,True
+fact_model_validation,validation_scope,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic_invariant
+fact_lap,lap_id,BIGINT,dimensionless / identifier / text,True,,False,No measured records available
+fact_lap,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,No measured records available
+fact_lap,lap_time_s,DOUBLE,s,False,,True,No measured records available
+fact_sector,sector_fact_id,BIGINT,dimensionless / identifier / text,True,,False,No measured records available
+fact_sector,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,No measured records available
+fact_sector,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,No measured records available
+fact_sector,sector_time_s,DOUBLE,s,False,,True,No measured records available
+fact_telemetry,telemetry_id,BIGINT,dimensionless / identifier / text,True,,False,No measured records available
+fact_telemetry,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,No measured records available
+fact_telemetry,sample_index,BIGINT,dimensionless / identifier / text,False,,True,No measured records available
+fact_telemetry,speed_mps,DOUBLE,m/s,False,,True,No measured records available
+dim_track_segment,segment_id,BIGINT,dimensionless / identifier / text,True,,False,101
+dim_track_segment,circuit_id,BIGINT,dimensionless / identifier / text,False,dim_circuit,False,1
+dim_track_segment,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,11
+dim_track_segment,segment_order,BIGINT,dimensionless / identifier / text,False,,True,1
+dim_track_segment,kind,VARCHAR(500),dimensionless / identifier / text,False,,True,straight
+dim_track_segment,length_m,BIGINT,m,False,,True,1050
+dim_track_segment,radius_m,BIGINT,m,False,,True,0
+dim_track_segment,banking_rad,DOUBLE,rad,False,,True,0.0
+dim_track_segment,grade_rad,DOUBLE,rad,False,,True,0.0
+dim_track_segment,surface_grip,DOUBLE,dimensionless / identifier / text,False,,True,1.0
+dim_track_segment,width_m,DOUBLE,m,False,,True,12.0
+dim_track_segment,drs_zone,BIGINT,dimensionless / identifier / text,False,,True,1
+dim_track_segment,drs_start_fraction,DOUBLE,dimensionless / identifier / text,False,,True,0.15
+dim_track_segment,drs_end_fraction,DOUBLE,dimensionless / identifier / text,False,,True,0.82
+dim_track_segment,data_source_type,VARCHAR(500),dimensionless / identifier / text,False,,True,synthetic
+dim_track_segment,synthetic_flag,BOOLEAN,dimensionless / identifier / text,False,,True,True
+dim_track_segment,model_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_track_segment,data_version,VARCHAR(500),dimensionless / identifier / text,False,,True,1.0.0
+dim_track_segment,generation_timestamp,VARCHAR(500),dimensionless / identifier / text,False,,True,2026-09-16T20:12:09.907988+00:00
+dim_track_segment,random_seed,BIGINT,dimensionless / identifier / text,False,,True,42
+dim_track_segment,validation_status,VARCHAR(500),dimensionless / identifier / text,False,,True,schema_checked
+fact_vehicle_state,vehicle_state_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_vehicle_state,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_vehicle_state,sample_index,BIGINT,dimensionless / identifier / text,False,,True,0
+fact_vehicle_state,distance_m,DOUBLE,m,False,,True,0.0
+fact_vehicle_state,step_m,DOUBLE,m,False,,True,10.0
+fact_vehicle_state,time_s,DOUBLE,s,False,,True,0.0
+fact_vehicle_state,dt_s,DOUBLE,s,False,,True,0.17226354580190303
+fact_vehicle_state,shift_loss_s,DOUBLE,s,False,,True,0.0
+fact_vehicle_state,speed_mps,DOUBLE,m/s,False,,True,57.56151046603918
+fact_vehicle_state,exit_speed_mps,DOUBLE,m/s,False,,True,58.539664085419844
+fact_vehicle_state,acceleration_mps2,DOUBLE,m/s²,False,,True,5.678239205092791
+fact_vehicle_state,lateral_acceleration_mps2,DOUBLE,m/s²,False,,True,0.0
+fact_vehicle_state,gear,BIGINT,dimensionless / identifier / text,False,,True,3
+fact_vehicle_state,drs,BIGINT,dimensionless / identifier / text,False,,True,0
+fact_vehicle_state,drs_zone,BIGINT,dimensionless / identifier / text,False,,True,0
+fact_vehicle_state,fuel_kg,DOUBLE,kg,False,,True,10.0
+fact_vehicle_state,mass_kg,DOUBLE,kg,False,,True,810.0
+fact_vehicle_state,tyre_wear,DOUBLE,dimensionless / identifier / text,False,,True,0.0
+fact_vehicle_state,tyre_temperature_c,DOUBLE,°C,False,,True,85.0
+fact_vehicle_state,engine_force_n,DOUBLE,N,False,,True,7192.307184060152
+fact_vehicle_state,available_engine_force_n,DOUBLE,N,False,,True,7192.306050485881
+fact_vehicle_state,brake_force_n,DOUBLE,N,False,,True,0.0
+fact_vehicle_state,rolling_force_n,DOUBLE,N,False,,True,277.58502383925213
+fact_vehicle_state,front_tyre_load_n,DOUBLE,N,False,,True,7716.004266845245
+fact_vehicle_state,rear_tyre_load_n,DOUBLE,N,False,,True,10789.663989104894
+fact_vehicle_state,max_wheel_load_n,DOUBLE,N,False,,True,5394.831994552447
+fact_vehicle_state,tyre_mu,DOUBLE,dimensionless / identifier / text,False,,True,1.5031394358097223
+fact_vehicle_state,segment_id,BIGINT,dimensionless / identifier / text,False,dim_track_segment,False,101
+fact_vehicle_state,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,11
+fact_vehicle_state,radius_m,BIGINT,m,False,,True,0
+fact_vehicle_state,front_downforce_n,DOUBLE,N,False,,True,4524.7614881890095
+fact_vehicle_state,rear_downforce_n,DOUBLE,N,False,,True,6037.520267761131
+fact_vehicle_state,downforce_n,DOUBLE,N,False,,True,10562.281755950142
+fact_vehicle_state,drag_n,DOUBLE,N,False,,True,2315.348404095739
+fact_vehicle_state,drag_longitudinal_n,DOUBLE,N,False,,True,2315.348404095739
+fact_vehicle_state,front_height_m,DOUBLE,m,False,,True,0.03794797881015894
+fact_vehicle_state,rear_height_m,DOUBLE,m,False,,True,0.05681767776456989
+fact_vehicle_state,yaw_deg,DOUBLE,deg,False,,True,0.0
+fact_vehicle_state,roll_deg,DOUBLE,deg,False,,True,0.0
+fact_vehicle_state,cl_down,DOUBLE,dimensionless / identifier / text,False,,True,3.4696980684923124
+fact_vehicle_state,cd,DOUBLE,dimensionless / identifier / text,False,,True,0.7605894323972309
+fact_vehicle_state,front_aero_fraction,DOUBLE,dimensionless / identifier / text,False,,True,0.42838863729800014
+fact_simulation_segment,simulation_segment_id,BIGINT,dimensionless / identifier / text,True,,False,1
+fact_simulation_segment,run_id,BIGINT,dimensionless / identifier / text,False,run_registry,False,1
+fact_simulation_segment,segment_id,BIGINT,dimensionless / identifier / text,False,dim_track_segment,False,101
+fact_simulation_segment,sector_id,BIGINT,dimensionless / identifier / text,False,dim_sector,False,11
+fact_simulation_segment,segment_time_s,DOUBLE,s,False,,True,14.221739471407531
+fact_simulation_segment,top_speed_mps,DOUBLE,m/s,False,,True,83.89733951158058
+fact_simulation_segment,length_m,DOUBLE,m,False,,True,1050.0

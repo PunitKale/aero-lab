@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page15_main",
+  "position": {
+    "x": 16,
+    "y": 205,
+    "z": 0,
+    "height": 490,
+    "width": 1248,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "distance_m"
+                }
+              },
+              "queryRef": "fact_tyre_state.distance_m"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "tyre_state_id"
+                }
+              },
+              "queryRef": "fact_tyre_state.tyre_state_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "run_id"
+                }
+              },
+              "queryRef": "fact_tyre_state.run_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "tyre_id"
+                }
+              },
+              "queryRef": "fact_tyre_state.tyre_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "sample_index"
+                }
+              },
+              "queryRef": "fact_tyre_state.sample_index"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "tyre_wear"
+                }
+              },
+              "queryRef": "fact_tyre_state.tyre_wear"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_tyre_state"
+                    }
+                  },
+                  "Property": "tyre_temperature_c"
+                }
+              },
+              "queryRef": "fact_tyre_state.tyre_temperature_c"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tyre and Fuel Evolution \u2014 synthetic data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

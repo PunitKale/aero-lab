@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page05_v0",
+  "position": {
+    "x": 16,
+    "y": 235,
+    "z": 0,
+    "height": 530,
+    "width": 696,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_setup"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "dim_setup.name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_setup"
+                    }
+                  },
+                  "Property": "front_wing_deg"
+                }
+              },
+              "queryRef": "dim_setup.front_wing_deg"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_setup"
+                    }
+                  },
+                  "Property": "rear_wing_deg"
+                }
+              },
+              "queryRef": "dim_setup.rear_wing_deg"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Lap Time s"
+                }
+              },
+              "queryRef": "fact_lap.Lap Time s"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Setup Rank"
+                }
+              },
+              "queryRef": "fact_lap.Setup Rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Tyre Wear Change pct"
+                }
+              },
+              "queryRef": "fact_lap.Tyre Wear Change pct"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Nine alternatives plus baseline \u2014 discrete grid only'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

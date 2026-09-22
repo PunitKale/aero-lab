@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "OSM-derived centreline, analytical sectors. Filter to one run. Equal metre scale using fixed aspect ratio.",
+  "data": {
+    "name": "dataset"
+  },
+  "width": 650,
+  "height": 1082,
+  "mark": {
+    "type": "line",
+    "strokeWidth": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "x_m",
+      "type": "quantitative",
+      "scale": {
+        "zero": false
+      }
+    },
+    "y": {
+      "field": "y_m",
+      "type": "quantitative",
+      "scale": {
+        "zero": false
+      }
+    },
+    "order": {
+      "field": "point_index",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "sector_id",
+      "type": "nominal"
+    },
+    "tooltip": [
+      {
+        "field": "point_index",
+        "type": "quantitative"
+      },
+      {
+        "field": "distance_m",
+        "type": "quantitative"
+      },
+      {
+        "field": "speed_kmh",
+        "type": "quantitative"
+      },
+      {
+        "field": "downforce_n",
+        "type": "quantitative"
+      }
+    ]
+  }
+}

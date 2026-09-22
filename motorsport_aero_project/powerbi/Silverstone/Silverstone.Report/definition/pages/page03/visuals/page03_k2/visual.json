@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page03_k2",
+  "position": {
+    "x": 728,
+    "y": 110,
+    "z": 0,
+    "height": 90,
+    "width": 346,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Lap Delta s"
+                }
+              },
+              "queryRef": "fact_lap.Lap Delta s"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lap Delta s'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

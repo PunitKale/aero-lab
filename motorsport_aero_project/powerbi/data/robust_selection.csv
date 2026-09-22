@@ -1,0 +1,4 @@
+candidate,front_wing_deg,rear_wing_deg,front_height_m,rear_height_m,package,valid_draws,draws,mean_lap_s,sd_lap_s,robust_objective_s,feasible_fraction,circuit_id
+qualifying,15.6243405106,14.4581580192,0.0298721615783,0.058321284358,standard,30,30,38.5899953178,0.875522226419,39.4655175442,1,2
+baseline,17.5,20,0.04,0.06,standard,30,30,38.8709418199,0.632055478996,39.5029972989,1,2
+moderate,19,23,0.04,0.065,standard,30,30,39.1777056183,0.577157970251,39.7548635886,1,2

@@ -1,0 +1,105 @@
+table fact_aero_map
+	column aero_map_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: aero_map_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column speed_mps
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: speed_mps
+
+	column front_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: front_height_m
+
+	column rear_height_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: rear_height_m
+
+	column yaw_deg
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: yaw_deg
+
+	column drs
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: drs
+
+	column cl_front
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cl_front
+
+	column cl_rear
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cl_rear
+
+	column cd
+		dataType: double
+		summarizeBy: none
+		sourceColumn: cd
+
+	column downforce_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: downforce_n
+
+	column drag_n
+		dataType: double
+		summarizeBy: none
+		sourceColumn: drag_n
+
+	column data_source_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source_type
+
+	column synthetic_flag
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: synthetic_flag
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column data_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_version
+
+	column generation_timestamp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: generation_timestamp
+
+	column random_seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: random_seed
+
+	column validation_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: validation_status
+
+	partition fact_aero_map = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_aero_map.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"aero_map_id", Int64.Type}, {"setup_id", Int64.Type}, {"speed_mps", Int64.Type}, {"front_height_m", type number}, {"rear_height_m", type number}, {"yaw_deg", Int64.Type}, {"drs", Int64.Type}, {"cl_front", type number}, {"cl_rear", type number}, {"cd", type number}, {"downforce_n", type number}, {"drag_n", type number}, {"data_source_type", type text}, {"synthetic_flag", type logical}, {"model_version", type text}, {"data_version", type text}, {"generation_timestamp", type text}, {"random_seed", Int64.Type}, {"validation_status", type text}}, "en-US")
+			in
+				Typed

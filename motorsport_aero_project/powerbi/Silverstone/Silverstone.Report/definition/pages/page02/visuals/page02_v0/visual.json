@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page02_v0",
+  "position": {
+    "x": 16,
+    "y": 235,
+    "z": 0,
+    "height": 530,
+    "width": 696,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Map East m"
+                }
+              },
+              "queryRef": "fact_lap.Map East m"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Map North m"
+                }
+              },
+              "queryRef": "fact_lap.Map North m"
+            }
+          ]
+        },
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_telemetry"
+                    }
+                  },
+                  "Property": "point_index"
+                }
+              },
+              "queryRef": "fact_telemetry.point_index"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_sector"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "dim_sector.name"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Mapped centreline points \u2014 set equal x/y metre scales'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

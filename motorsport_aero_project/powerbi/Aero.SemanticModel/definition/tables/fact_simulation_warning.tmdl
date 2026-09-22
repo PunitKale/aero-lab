@@ -1,0 +1,30 @@
+table fact_simulation_warning
+	column warning_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: warning_id
+
+	column run_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column warning_code
+		dataType: string
+		summarizeBy: none
+		sourceColumn: warning_code
+
+	column severity
+		dataType: string
+		summarizeBy: none
+		sourceColumn: severity
+
+	partition fact_simulation_warning = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_simulation_warning.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"warning_id", type text}, {"run_id", type text}, {"warning_code", type text}, {"severity", type text}}, "en-US")
+			in
+				Typed

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "page01_disclaimer",
+  "position": {
+    "x": 16,
+    "y": 770,
+    "z": 0,
+    "height": 45,
+    "width": 1408,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lap"
+                    }
+                  },
+                  "Property": "Model-generated share"
+                }
+              },
+              "queryRef": "fact_lap.Model-generated share"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Real circuit geometry; model-generated vehicle performance. Not CFD or official telemetry.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

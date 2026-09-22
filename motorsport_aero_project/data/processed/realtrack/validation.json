@@ -1,0 +1,159 @@
+{
+  "geometry": [
+    {
+      "circuit": "Silverstone Grand Prix",
+      "length_m": 5887.32698726564,
+      "raw_length_m": 5891.043877434984,
+      "raw_points": 507,
+      "clean_points": 507,
+      "sample_count": 1178,
+      "projection": "WGS84 ECEF to local east/north tangent plane; altitude 0 m",
+      "origin_lon": -1.0240046,
+      "origin_lat": 52.0678435,
+      "smoothing_sigma_m": 4.0,
+      "spacing_m": 5.0,
+      "max_smoothing_displacement_m": 0.5192697458003338,
+      "dataset_id": "197ccb7fc1578619449a8faec63e1b288760c05340a8cdf57202b7eb0d7795d2",
+      "source_sha256": "ef5bb9237a55a6d438148ad78b870915f4bdb9b7faa48c6c1a44b663cde932a7",
+      "source_warnings": [
+        {
+          "way_id": 169854842,
+          "note": "Estimate"
+        },
+        {
+          "way_id": 169800226,
+          "note": "Estimate"
+        },
+        {
+          "way_id": 169800223,
+          "note": "Estimate"
+        },
+        {
+          "way_id": 169800225,
+          "note": "Estimate"
+        },
+        {
+          "way_id": 169848882,
+          "note": "Estimate"
+        },
+        {
+          "way_id": 169800224,
+          "note": "Estimate"
+        }
+      ],
+      "baseline_s": 120.95197787151059,
+      "candidate_s": 120.91559598827556,
+      "delta_s": -0.03638188323503755
+    }
+  ],
+  "rows": {
+    "circuits": 1,
+    "sectors": 3,
+    "track_points": 1178,
+    "aero_setups": 10,
+    "simulation_runs": 10,
+    "telemetry_points": 11780
+  },
+  "mysql": [
+    {
+      "check": "circuits rows",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "check": "sectors rows",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "check": "track_points rows",
+      "expected": 1178,
+      "actual": 1178,
+      "passed": true
+    },
+    {
+      "check": "aero_setups rows",
+      "expected": 10,
+      "actual": 10,
+      "passed": true
+    },
+    {
+      "check": "simulation_runs rows",
+      "expected": 10,
+      "actual": 10,
+      "passed": true
+    },
+    {
+      "check": "telemetry_points rows",
+      "expected": 11780,
+      "actual": 11780,
+      "passed": true
+    },
+    {
+      "check": "run 10101 seconds",
+      "expected": 120.95197787151059,
+      "actual": 120.95197787151051,
+      "passed": true
+    },
+    {
+      "check": "run 10102 seconds",
+      "expected": 122.63220712287388,
+      "actual": 122.63220712287388,
+      "passed": true
+    },
+    {
+      "check": "run 10103 seconds",
+      "expected": 121.7930605830924,
+      "actual": 121.79306058309253,
+      "passed": true
+    },
+    {
+      "check": "run 10104 seconds",
+      "expected": 121.53500141327613,
+      "actual": 121.53500141327602,
+      "passed": true
+    },
+    {
+      "check": "run 10105 seconds",
+      "expected": 122.05224611370674,
+      "actual": 122.05224611370676,
+      "passed": true
+    },
+    {
+      "check": "run 10106 seconds",
+      "expected": 121.28537342372437,
+      "actual": 121.28537342372447,
+      "passed": true
+    },
+    {
+      "check": "run 10107 seconds",
+      "expected": 121.09114945024717,
+      "actual": 121.0911494502471,
+      "passed": true
+    },
+    {
+      "check": "run 10108 seconds",
+      "expected": 121.6511890097681,
+      "actual": 121.65118900976802,
+      "passed": true
+    },
+    {
+      "check": "run 10109 seconds",
+      "expected": 120.92250998450181,
+      "actual": 120.92250998450174,
+      "passed": true
+    },
+    {
+      "check": "run 10110 seconds",
+      "expected": 120.91559598827556,
+      "actual": 120.91559598827543,
+      "passed": true
+    },
+    {
+      "check": "all geometry and performance rows match Python",
+      "passed": true
+    }
+  ]
+}

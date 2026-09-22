@@ -1,0 +1,10 @@
+{
+  "model_version": "1.0.0", "data_version": "1.0.0", "random_seed": 42,
+  "car": {"dry_mass_kg":800,"wheelbase_m":3.6,"track_m":1.6,"cg_height_m":0.3,"front_weight_fraction":0.45,"area_m2":1.5,"power_w":450000,"efficiency":0.92,"rolling_coefficient":0.015,"brake_limit_n":24000,"brake_bias":0.58,"wheel_radius_m":0.33,"final_drive":3.4,"gear_ratios":[3.0,2.25,1.8,1.5,1.25,1.05],"max_rpm":12000,"torque_nm":480,"axle_heave_stiffness_n_m":2000000,"roll_front_fraction":0.48},
+  "simulation": {"step_m":10,"speed_cap_mps":100,"fuel_kg_per_m":0.0005,"max_iterations":80,"speed_tolerance_mps":0.001,"shift_time_s":0.04,"race_laps":10},
+  "constraints": {"min_clearance_m":0.015,"max_tyre_load_n":15000,"balance_min":0.35,"balance_max":0.55,"max_balance_shift":0.06,"max_drag_n_at_70":6500,"max_braking_ratio":1.05},
+  "bounds": {"front_wing_deg":[10,25],"rear_wing_deg":[10,30],"front_height_m":[0.025,0.055],"rear_height_m":[0.04,0.085]},
+  "uncertainty": {"draws":200,"density_range":[0.98,1.02],"grip_range":[0.95,1.05],"aero_range":[0.95,1.05],"headwind_range_mps":[-5,5],"crosswind_range_mps":[-2,2],"height_range_m":[-0.002,0.002]},
+  "drs_policy": {"policy_id":"synthetic-legacy-1","min_speed_mps":30,"max_yaw_deg":8,"max_lateral_accel_mps2":2,"drag_multiplier":0.82,"rear_downforce_multiplier":0.75},
+  "assumption_notice":"Generic synthetic single-seater. No current championship compliance or measured-car accuracy claimed."
+}

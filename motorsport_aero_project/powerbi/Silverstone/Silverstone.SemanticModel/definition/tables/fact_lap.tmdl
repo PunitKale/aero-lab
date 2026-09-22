@@ -1,0 +1,127 @@
+table fact_lap
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column comparison_role
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_role
+
+	column model_version
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model_version
+
+	column dataset_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: dataset_id
+
+	column lap_time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lap_time_s
+
+	column max_speed_mps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: max_speed_mps
+
+	column tyre_wear_change
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear_change
+
+	column solver_iterations
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: solver_iterations
+
+	column data_source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: data_source
+
+	column is_synthetic
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+	measure 'Lap Time s' = IF(HASONEVALUE(fact_lap[run_id]), MAX(fact_lap[lap_time_s]))
+		formatString: 0.000
+
+	measure 'Baseline Lap s' = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Lap Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "baseline"))
+		formatString: 0.000
+
+	measure 'Candidate Lap s' = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Lap Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "candidate"))
+		formatString: 0.000
+
+	measure 'Lap Delta s' = IF(NOT ISBLANK([Candidate Lap s]) && NOT ISBLANK([Baseline Lap s]), [Candidate Lap s] - [Baseline Lap s])
+		formatString: 0.000
+
+	measure 'Average Speed kmh' = DIVIDE(SUM(fact_telemetry[step_m]), SUM(fact_telemetry[dt_s])) * 3.6
+		formatString: 0.000
+
+	measure 'Max Speed kmh' = MAX(fact_telemetry[speed_mps]) * 3.6
+		formatString: 0.000
+
+	measure 'Average Downforce N' = DIVIDE(SUMX(fact_telemetry, fact_telemetry[downforce_n] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+		formatString: 0.000
+
+	measure 'Average Drag N' = DIVIDE(SUMX(fact_telemetry, fact_telemetry[drag_n] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+		formatString: 0.000
+
+	measure 'Aero Efficiency' = DIVIDE([Average Downforce N], [Average Drag N])
+		formatString: 0.000
+
+	measure 'Tyre Wear Change pct' = IF(HASONEVALUE(fact_telemetry[run_id]), SUMX(fact_telemetry, fact_telemetry[tyre_wear_end] - fact_telemetry[tyre_wear]) * 100)
+		formatString: 0.000
+
+	measure 'Sector Time s' = IF(HASONEVALUE(fact_sector[run_id]), SUM(fact_sector[sector_time_s]))
+		formatString: 0.000
+
+	measure 'Baseline Sector s' = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Sector Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "baseline"))
+		formatString: 0.000
+
+	measure 'Candidate Sector s' = IF(HASONEVALUE(dim_circuit[circuit_id]), CALCULATE([Sector Time s], REMOVEFILTERS(dim_setup), REMOVEFILTERS(dim_run), dim_run[comparison_role] = "candidate"))
+		formatString: 0.000
+
+	measure 'Sector Delta s' = IF(NOT ISBLANK([Candidate Sector s]) && NOT ISBLANK([Baseline Sector s]), [Candidate Sector s] - [Baseline Sector s])
+		formatString: 0.000
+
+	measure 'Average Acceleration mps2' = DIVIDE(SUMX(fact_telemetry, fact_telemetry[acceleration_mps2] * fact_telemetry[dt_s]), SUM(fact_telemetry[dt_s]))
+		formatString: 0.000
+
+	measure 'Map East m' = AVERAGE(fact_telemetry[x_m])
+		formatString: 0.000
+
+	measure 'Map North m' = AVERAGE(fact_telemetry[y_m])
+		formatString: 0.000
+
+	measure 'Setup Rank' = IF(NOT ISBLANK([Lap Time s]), RANKX(FILTER(ALLSELECTED(dim_setup), NOT ISBLANK(CALCULATE([Lap Time s]))), [Lap Time s], , ASC, DENSE))
+		formatString: 0.000
+
+	measure 'Model-generated share' = DIVIDE(CALCULATE(COUNTROWS(fact_telemetry), fact_telemetry[is_synthetic] = TRUE()), COUNTROWS(fact_telemetry))
+		formatString: 0.000
+
+	partition fact_lap = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="fact_lap"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"run_id", Int64.Type}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"comparison_role", type text}, {"model_version", type text}, {"dataset_id", type text}, {"lap_time_s", type number}, {"max_speed_mps", type number}, {"tyre_wear_change", type number}, {"solver_iterations", Int64.Type}, {"data_source", type text}, {"is_synthetic", type logical}}, "en-US")
+			in
+			    Typed

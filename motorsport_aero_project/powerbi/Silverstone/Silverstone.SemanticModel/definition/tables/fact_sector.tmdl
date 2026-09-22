@@ -1,0 +1,45 @@
+table fact_sector
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column sector_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sector_id
+
+	column sector_time_s
+		dataType: double
+		summarizeBy: none
+		sourceColumn: sector_time_s
+
+	column sector_distance_m
+		dataType: double
+		summarizeBy: none
+		sourceColumn: sector_distance_m
+
+	column average_speed_kmh
+		dataType: double
+		summarizeBy: none
+		sourceColumn: average_speed_kmh
+
+	partition fact_sector = m
+		mode: import
+		source =
+			let
+			    Source = MySQL.Database(MySQLServer, MySQLDatabase, [ReturnSingleDatabase=true]),
+			    Rows = Source{[Schema=MySQLDatabase, Item="fact_sector"]}[Data],
+			    Typed = Table.TransformColumnTypes(Rows, {{"run_id", Int64.Type}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"sector_id", Int64.Type}, {"sector_time_s", type number}, {"sector_distance_m", type number}, {"average_speed_kmh", type number}}, "en-US")
+			in
+			    Typed

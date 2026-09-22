@@ -1,0 +1,90 @@
+table fact_tyre_state
+	column tyre_state_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_state_id
+
+	column run_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: run_id
+
+	column tyre_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tyre_id
+
+	column sample_index
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sample_index
+
+	column distance_m
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: distance_m
+
+	column tyre_wear
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_wear
+
+	column tyre_temperature_c
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_temperature_c
+
+	column tyre_mu
+		dataType: double
+		summarizeBy: none
+		sourceColumn: tyre_mu
+
+	column fuel_kg
+		dataType: double
+		summarizeBy: none
+		sourceColumn: fuel_kg
+
+	column circuit_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: circuit_id
+
+	column setup_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: setup_id
+
+	column weather_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column car_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: car_id
+
+	column date_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: date_id
+
+	column comparison_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: comparison_group
+
+	partition fact_tyre_state = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_tyre_state.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"tyre_state_id", Int64.Type}, {"run_id", Int64.Type}, {"tyre_id", Int64.Type}, {"sample_index", Int64.Type}, {"distance_m", Int64.Type}, {"tyre_wear", type number}, {"tyre_temperature_c", type number}, {"tyre_mu", type number}, {"fuel_kg", type number}, {"circuit_id", Int64.Type}, {"setup_id", Int64.Type}, {"weather_id", Int64.Type}, {"session_id", Int64.Type}, {"car_id", Int64.Type}, {"date_id", Int64.Type}, {"comparison_group", type text}}, "en-US")
+			in
+				Typed

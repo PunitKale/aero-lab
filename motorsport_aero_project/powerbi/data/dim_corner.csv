@@ -1,0 +1,10 @@
+corner_id,sector_id,radius_m,banking_rad,width_m,data_source_type,synthetic_flag,model_version,data_version,generation_timestamp,random_seed,validation_status
+102,11,75,0.02,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+104,12,40,-0.01,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+106,13,110,0,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+202,21,95,0.02,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+204,22,50,-0.01,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+206,23,150,0,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+302,31,160,0.02,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+304,32,110,-0.01,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
+306,33,210,0,12,synthetic,True,1.0.0,1.0.0,2026-09-16T20:12:09.907988+00:00,42,schema_checked
