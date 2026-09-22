@@ -1,5 +1,9 @@
 # Deploy Aero Lab
 
+Live deployment: https://aero-lab.onrender.com/reports/dashboard
+
+The initial public deployment passed health checks and returned successful simulations for all five circuits. The live browser dashboard and 3D replay loaded without console errors. The service uses the public Git repository; use Render's Manual Deploy control for later code updates unless you connect GitHub auto-deployment.
+
 The dashboard and API must be hosted together on a Python-capable service. Browser requests use same-origin `/api/circuits`, `/api/simulate` and `/api/verify`. The production entry point `src.realtrack.web:app` reuses the solver and Python dashboard without changing the model or layout.
 
 ## Render configuration

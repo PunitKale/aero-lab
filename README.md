@@ -1,5 +1,9 @@
 # Aero Lab — Geometry-Driven Research
 
+**Live dashboard: [aero-lab.onrender.com](https://aero-lab.onrender.com/reports/dashboard)**
+
+Hosted on Render's free Python service. After inactivity, the first load may take 50 seconds or more while the service wakes up.
+
 A complete final-year Python analytics and simulation project: five mapped circuits, interactive aero setup comparison, Three.js replay, MySQL and Power BI source reports.
 
 **Real circuit geometry; model-generated vehicle performance. Not CFD or official telemetry.** The vehicle model is uncalibrated. The finer-spacing check measures numerical sensitivity, not real-world accuracy.
